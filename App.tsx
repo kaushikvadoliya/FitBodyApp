@@ -1,12 +1,13 @@
-import { Text } from 'react-native';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import MainStack from './src/navigation/MainStack';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   return (
-    <SafeAreaView edges={['top']} style={{ flex: 1 }}>
-      <Text>hello world</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <MainStack />
+    </NavigationContainer>
   );
 };
 
