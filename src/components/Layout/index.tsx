@@ -13,8 +13,9 @@ const Layout = ({ children, style }: LayoutProps) => {
   return (
     <SafeAreaView style={[style, styles.container]}>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior="padding"
         style={{ flex: 1 }}
+        keyboardVerticalOffset={30}
       >
         {children}
       </KeyboardAvoidingView>

@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
-import { verticalScale } from '../../helper/Scaling';
+import { horizontalScale, verticalScale } from '../../helper/Scaling';
 
 const { width, height } = Dimensions.get('window');
 
@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
     height: height,
     width: width,
   },
+  skipButtonStyle: {
+    left: horizontalScale(298),
+    top: verticalScale(65),
+    position: 'relative',
+  },
   container: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.25)',
@@ -16,12 +21,12 @@ const styles = StyleSheet.create({
   centerContainer: {
     height: 170,
     backgroundColor: colors.primary,
-    top: verticalScale(300),
+    marginTop: verticalScale(300),
     alignItems: 'center',
   },
   button: {
-    top: verticalScale(316),
     alignSelf: 'center',
+    marginTop: 20,
   },
   icon: {
     height: 64,

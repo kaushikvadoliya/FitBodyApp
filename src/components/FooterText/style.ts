@@ -2,20 +2,14 @@ import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
   text: {
-    color: colors.secondary,
+    color: colors.white,
+    textAlign: 'center',
     fontFamily: 'League Spartan',
-    fontWeight: '500',
-    fontSize: 18,
+    fontSize: 14,
   },
-  icon: {
-    height: 13,
-    width: 7,
+  buttonText: {
+    color: colors.secondary,
   },
 });
 

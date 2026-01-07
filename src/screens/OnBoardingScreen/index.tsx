@@ -1,4 +1,4 @@
-import { Dimensions, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import React, { useRef } from 'react';
 import { onBoardingData } from './onBoardingData';
 import OnBoardingItem from '../../components/onBoardingItem';
@@ -28,7 +28,6 @@ const OnBoardingScreen = () => {
       )}
       horizontal
       pagingEnabled
-      scrollEnabled={false}
       showsHorizontalScrollIndicator={false}
     />
   );

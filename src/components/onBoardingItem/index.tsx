@@ -23,8 +23,13 @@ const OnBoardingItem = ({ item, onPress }: OnBoardingItemProps) => {
       source={item.image}
     >
       <View style={styles.container}>
-        {item.id !== 3 && (
-          <SkipButton onPress={() => navigation.navigate('Login')} />
+        {item.id !== 3 ? (
+          <SkipButton
+            style={styles.skipButtonStyle}
+            onPress={() => navigation.navigate('Login')}
+          />
+        ) : (
+          <View style={{ height: 22 }} />
         )}
         <View style={styles.centerContainer}>
           <Image style={styles.icon} source={item.icon} resizeMode="contain" />

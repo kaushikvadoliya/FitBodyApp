@@ -11,12 +11,16 @@ import styles from './style';
 type ButtonProps = {
   text: string;
   onPress: () => void;
-  style: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>;
 } & TouchableOpacityProps;
 
-const PrimaryButton = ({ onPress, text, style }: ButtonProps) => {
+const PrimaryButton = ({ onPress, text, style, ...rest }: ButtonProps) => {
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.button, style]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, style]}
+      {...rest}
+    >
       {/* <BlurView blurAmount={4} blurType="light" style={styles.blurContainer}> */}
       <Text style={styles.buttonText}>{text}</Text>
       {/* </BlurView> */}

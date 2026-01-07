@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
+import { horizontalScale } from '../../helper/Scaling';
 
 const styles = StyleSheet.create({
   button: {
-    width: 211,
-    height: 46,
+    minWidth: horizontalScale(200),
+    height: 48,
     borderRadius: 100,
     borderWidth: 1,
     borderColor: colors.white,
@@ -15,6 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(100,100,100,0.6)',
+    paddingHorizontal: horizontalScale(20),
   },
   // blurContainer: {
   //   flex: 1,
