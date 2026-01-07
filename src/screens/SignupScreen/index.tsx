@@ -23,10 +23,7 @@ const SignUpScreen = () => {
   const { control, handleSubmit } = useForm();
   return (
     <Layout>
-      <AuthHeader
-        text="Create Account"
-        style={{ marginTop: verticalScale(10) }}
-      />
+      <AuthHeader text="Create Account" style={styles.header} />
       <View style={styles.mainContainer}>
         <Text style={styles.heading}>Let's Start!</Text>
         <View style={styles.inputContainer}>
@@ -63,6 +60,7 @@ const SignUpScreen = () => {
             control={control}
             placeholder="enter Password"
             placeholderTextColor={colors.black1}
+            eyeIcon
             rules={{
               required: 'Password is requried',
               minLength: {
@@ -76,6 +74,7 @@ const SignUpScreen = () => {
             name="Confirm Password"
             control={control}
             placeholder="Renter Password"
+            eyeIcon
             placeholderTextColor={colors.black1}
             rules={{
               required: 'Password is requried',

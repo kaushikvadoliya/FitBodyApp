@@ -1,23 +1,24 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
+import { horizontalScale, verticalScale } from '../../helper/Scaling';
 
 const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
-    gap: 16,
+    gap: verticalScale(16),
     alignSelf: 'center',
   },
   container: {
-    gap: 16,
+    gap: verticalScale(16),
   },
   icon: {
-    height: 22,
-    width: 22,
+    height: verticalScale(22),
+    width: horizontalScale(22),
   },
   iconButton: {
     backgroundColor: colors.white,
-    height: 38,
-    width: 38,
+    height: verticalScale(38),
+    width: horizontalScale(38),
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,

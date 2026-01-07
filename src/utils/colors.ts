@@ -5,4 +5,5 @@ export const colors = {
   purple: '#896CFE',
   black: 'black',
   black1: '#232323',
+  liighblack: '#373737',
 };

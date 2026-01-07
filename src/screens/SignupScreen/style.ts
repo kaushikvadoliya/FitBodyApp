@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
   },
+  header: { marginTop: verticalScale(10) },
   heading: {
     fontSize: 22,
     fontWeight: '800',

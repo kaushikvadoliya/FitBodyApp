@@ -10,7 +10,28 @@ const styles = StyleSheet.create({
     width: horizontalScale(300),
     height: verticalScale(42),
     fontFamily: 'League Spartan',
-    paddingLeft: 20,
+    paddingLeft: horizontalScale(18),
+    fontWeight: '400',
+  },
+  eyeIcon: {
+    height: 24,
+    width: 24,
+    left: horizontalScale(10),
+  },
+  eyeInputContainer: {
+    flexDirection: 'row',
+    width: horizontalScale(300),
+
+    backgroundColor: colors.white,
+    borderRadius: 15,
+    alignItems: 'center',
+  },
+  withEyeInput: {
+    fontSize: 17,
+    width: horizontalScale(256),
+    height: verticalScale(42),
+    paddingLeft: horizontalScale(18),
+    fontFamily: 'League Spartan',
     fontWeight: '400',
   },
   container: {

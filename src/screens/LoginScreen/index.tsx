@@ -9,10 +9,9 @@ import { colors } from '../../utils/colors';
 import PrimaryButton from '../../components/PrimaryButton';
 import FooterLogoContainer from '../../components/FooterLogoContainer';
 import FooterText from '../../components/FooterText';
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
-import { verticalScale } from '../../helper/Scaling';
 
 const LoginScreen = () => {
   const { control, handleSubmit } = useForm();
@@ -24,7 +23,7 @@ const LoginScreen = () => {
 
   return (
     <Layout>
-      <AuthHeader text="Log In" style={{ marginTop: verticalScale(10) }} />
+      <AuthHeader text="Log In" style={styles.header} />
       <View style={styles.mainContainer}>
         <Text style={styles.heading}>Welcome</Text>
         <Text style={styles.text}>
@@ -50,9 +49,10 @@ const LoginScreen = () => {
             <InputField
               inputHeaderText="Password"
               name="password"
-              placeholder="enter Secure Password"
+              placeholder="enter secure password"
               control={control}
               placeholderTextColor={colors.black1}
+              eyeIcon
               rules={{
                 required: 'Password is required',
                 minLength: {
@@ -62,7 +62,10 @@ const LoginScreen = () => {
               }}
             />
           </View>
-          <TouchableOpacity style={styles.forgotButton}>
+          <TouchableOpacity
+            style={styles.forgotButton}
+            onPress={() => navigation.navigate('ForgottenPassword')}
+          >
             <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
         </View>

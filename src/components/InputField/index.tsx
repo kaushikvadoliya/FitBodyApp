@@ -1,28 +1,69 @@
 import React, { useState } from 'react';
-import { StyleProp, Text, TextInput, ViewStyle } from 'react-native';
-import {
-  Control,
-  Controller,
-  FieldValues,
-  RegisterOptions,
-} from 'react-hook-form';
+import { Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Control, Controller, RegisterOptions } from 'react-hook-form';
 import { TextInputProps, View } from 'react-native';
 import styles from './style';
+import { colors } from '../../utils/colors';
 
 type Props = {
   name: string;
   control: Control<any>;
   rules: RegisterOptions;
   inputHeaderText: string;
+  eyeIcon?: boolean;
 } & TextInputProps;
 
 const InputField = ({
   control,
   name,
+  eyeIcon,
   inputHeaderText,
   rules,
   ...rest
 }: Props) => {
+  const [show, setShow] = useState<boolean>(false);
+  if (eyeIcon) {
+    return (
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <>
+            <View style={styles.container}>
+              <Text style={styles.inputHeaderText}>{inputHeaderText}</Text>
+              <View style={styles.eyeInputContainer}>
+                <TextInput
+                  style={styles.withEyeInput}
+                  value={value}
+                  secureTextEntry={show ? false : true}
+                  onChangeText={onChange}
+                  {...rest}
+                />
+                <TouchableOpacity onPress={() => setShow(!show)}>
+                  {show ? (
+                    <Image
+                      source={require('../../assets/icons/hidden.png')}
+                      style={styles.eyeIcon}
+                      tintColor={colors.black1}
+                    />
+                  ) : (
+                    <Image
+                      source={require('../../assets/icons/eye.png')}
+                      style={styles.eyeIcon}
+                      tintColor={colors.black1}
+                    />
+                  )}
+                </TouchableOpacity>
+              </View>
+
+              {error && <Text style={styles.error}>{error.message}</Text>}
+            </View>
+          </>
+        )}
+      />
+    );
+  }
   return (
     <Controller
       control={control}

@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     textAlign: 'center',
-    marginHorizontal: horizontalScale(20),
+    marginHorizontal: horizontalScale(28),
     marginTop: verticalScale(34),
     fontSize: 14,
     fontWeight: '300',
-    lineHeight: 14,
+    lineHeight: verticalScale(14),
   },
   button: {
     alignSelf: 'center',
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(30),
     gap: verticalScale(56),
   },
+  header: { marginTop: verticalScale(10) },
 });
 
 export default styles;

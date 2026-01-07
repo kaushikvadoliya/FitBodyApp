@@ -27,6 +27,7 @@ const OnBoardingScreen = () => {
         <OnBoardingItem item={item} onPress={() => onNext(index + 1)} />
       )}
       horizontal
+      scrollEnabled={false}
       pagingEnabled
       showsHorizontalScrollIndicator={false}
     />
