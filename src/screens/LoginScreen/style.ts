@@ -1,13 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
   },
   heading: {
-    fontSize: 22,
+    fontSize: normalize(22),
     fontWeight: '800',
     color: colors.white,
     fontFamily: 'Poppins',
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginHorizontal: horizontalScale(28),
     marginTop: verticalScale(34),
-    fontSize: 14,
+    fontSize: normalize(14),
     fontWeight: '300',
     lineHeight: verticalScale(14),
   },
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     gap: verticalScale(16),
   },
   forgotText: {
-    fontSize: 13,
+    fontSize: normalize(13),
     fontWeight: '500',
     alignSelf: 'flex-end',
   },

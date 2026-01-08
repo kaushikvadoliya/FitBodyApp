@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import styles from './style';
 import { OtpInput } from 'react-native-otp-entry';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 type Props = {
   name: string;
@@ -33,7 +34,7 @@ const OtpField = ({ control, name, otpHeaderText, rules }: Props) => {
                 onTextChange={onChange}
                 theme={{
                   pinCodeTextStyle: {
-                    fontSize: 30,
+                    fontSize: normalize(30),
                   },
                   pinCodeContainerStyle: {
                     backgroundColor: '#f5f5f5',

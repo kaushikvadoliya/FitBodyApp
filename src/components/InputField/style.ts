@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   input: {
     borderRadius: 15,
-    fontSize: 17,
+    fontSize: normalize(17),
     backgroundColor: colors.white,
     width: horizontalScale(300),
     height: verticalScale(42),
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   withEyeInput: {
-    fontSize: 17,
+    fontSize: normalize(17),
     width: horizontalScale(256),
     height: verticalScale(42),
     paddingLeft: horizontalScale(18),
@@ -39,14 +40,14 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   inputHeaderText: {
-    fontSize: 16,
+    fontSize: normalize(16),
     fontWeight: '600',
     color: colors.black1,
     left: 4,
   },
   error: {
     color: 'red',
-    fontSize: 13,
+    fontSize: normalize(13),
     position: 'absolute',
     top: verticalScale(70),
   },

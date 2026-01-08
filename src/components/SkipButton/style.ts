@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontFamily: 'League Spartan',
     fontWeight: '500',
-    fontSize: 18,
+    fontSize: normalize(18),
   },
   icon: {
     height: 13,

@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   image: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   heading: {
-    fontSize: 32,
+    fontSize: normalize(30),
     fontWeight: '500',
     fontFamily: 'Poppins',
     color: colors.secondary,
@@ -24,15 +25,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 14,
+    fontSize: normalize(14),
     textAlign: 'center',
     width: horizontalScale(310),
     alignSelf: 'center',
     fontWeight: '300',
   },
   button: {
-    marginTop: verticalScale(30),
     alignSelf: 'center',
+    marginBottom: verticalScale(30),
+  },
+  buttonContainer: {
+    justifyContent: 'flex-end',
+    flex: 1,
   },
 });
 

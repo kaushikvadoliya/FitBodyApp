@@ -15,7 +15,11 @@ const SetUpScreen = () => {
         style={styles.image}
         source={require('../../assets/images/setupScreenImage.jpg')}
       />
-      <Text style={styles.heading}>
+      <Text
+        style={styles.heading}
+        numberOfLines={3}
+        adjustsFontSizeToFit={true}
+      >
         Consistency Is The Key To Progress. Don't Give Up!
       </Text>
       <View style={styles.container}>
@@ -24,11 +28,13 @@ const SetUpScreen = () => {
           need a few details to calculate your perfect daily goals.
         </Text>
       </View>
-      <PrimaryButton
-        text="Next"
-        onPress={() => navigation.navigate('Gender')}
-        style={styles.button}
-      />
+      <View style={styles.buttonContainer}>
+        <PrimaryButton
+          onPress={() => navigation.navigate('Gender')}
+          text="Continue"
+          style={styles.button}
+        />
+      </View>
     </Layout>
   );
 };

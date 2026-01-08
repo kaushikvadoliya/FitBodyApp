@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
-import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   image: {
@@ -8,11 +9,11 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     fontFamily: 'League Spartan',
-    fontSize: 25,
+    fontSize: normalize(24),
     color: colors.secondary,
     fontWeight: '800',
     top: verticalScale(326),
-    left: horizontalScale(132),
+    textAlign: 'center',
     lineHeight: 28,
   },
   container: {
@@ -23,17 +24,17 @@ const styles = StyleSheet.create({
     height: 84,
     width: 182,
     top: verticalScale(346),
-    left: horizontalScale(105),
+    alignSelf: 'center',
   },
   fitText: {
     fontWeight: '800',
     color: colors.secondary,
-    fontSize: 54,
+    fontSize: normalize(54),
     fontStyle: 'italic',
     width: 374,
     textAlign: 'center',
-    left: horizontalScale(9),
     top: verticalScale(342),
+    alignSelf: 'center',
   },
   bodyText: {
     fontWeight: '400',

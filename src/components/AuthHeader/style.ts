@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   backText: {
     color: colors.secondary,
-    fontSize: 15,
+    fontSize: normalize(15),
     fontWeight: '700',
   },
   text: {
     color: colors.secondary,
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: '800',
     textAlign: 'center',
   },

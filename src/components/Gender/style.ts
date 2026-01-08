@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import {
+  horizontalScale,
+  moderateScale,
+  verticalScale,
+} from '../../helper/Scaling';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +19,7 @@ const styles = StyleSheet.create({
     width: horizontalScale(158),
     borderRadius: 100,
     justifyContent: 'center',
+    resizeMode: 'cover',
   },
   image: {
     height: verticalScale(74),
@@ -22,7 +28,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: '800',
     fontFamily: 'Poppins',
   },

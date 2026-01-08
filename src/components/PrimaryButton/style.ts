@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   button: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
   // },
   buttonText: {
     color: colors.white,
-    fontSize: 18,
+    fontSize: normalize(18),
     fontWeight: '800',
   },
 });

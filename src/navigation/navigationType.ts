@@ -9,4 +9,5 @@ export type StackParams = {
   SetPassword: undefined;
   Gender: undefined;
   Age: undefined;
+  Weight: undefined;
 };

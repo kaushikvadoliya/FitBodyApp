@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   header: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     marginHorizontal: horizontalScale(28),
-    fontSize: 14,
+    fontSize: normalize(14),
     fontWeight: '300',
     lineHeight: 14,
     marginTop: verticalScale(94),

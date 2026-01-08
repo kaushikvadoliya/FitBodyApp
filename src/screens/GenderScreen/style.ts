@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { verticalScale } from '../../helper/Scaling';
 import { colors } from '../../utils/colors';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   header: {
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   heading: {
-    fontSize: 26,
+    fontSize: normalize(26),
     color: colors.white,
     fontWeight: '700',
     fontFamily: 'Poppins',
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'League Spartan',
-    fontSize: 12,
+    fontSize: normalize(12),
     fontWeight: '300',
     width: '84%',
     alignSelf: 'center',
@@ -38,8 +39,11 @@ const styles = StyleSheet.create({
     marginTop: verticalScale(36),
   },
   button: {
-    marginTop: verticalScale(50),
     alignSelf: 'center',
+  },
+  buttonContainer: {
+    justifyContent: 'flex-end',
+    flex: 1,
   },
 });
 

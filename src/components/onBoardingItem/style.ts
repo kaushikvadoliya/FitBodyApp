@@ -1,6 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const { width, height } = Dimensions.get('window');
 
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     width: 280,
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: 700,
     textAlign: 'center',
     top: 10,

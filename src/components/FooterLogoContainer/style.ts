@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { horizontalScale, verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   iconContainer: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-    fontSize: 14,
+    fontSize: normalize(14),
     fontWeight: '300',
     textAlign: 'center',
   },

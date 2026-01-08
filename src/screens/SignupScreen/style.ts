@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
 import { verticalScale } from '../../helper/Scaling';
+import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
   },
   header: { marginTop: verticalScale(10) },
   heading: {
-    fontSize: 22,
+    fontSize: normalize(22),
     fontWeight: '800',
     color: colors.white,
     fontFamily: 'Poppins',
@@ -29,12 +30,12 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-    fontSize: 13,
+    fontSize: normalize(13),
     fontWeight: '500',
   },
   highlightText: {
     color: colors.secondary,
-    fontSize: 13,
+    fontSize: normalize(13),
     fontWeight: '400',
   },
   footerContainer: {
