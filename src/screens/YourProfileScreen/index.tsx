@@ -11,7 +11,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
 import PrimaryButton from '../../components/PrimaryButton';
 
-const ProfileScreen = () => {
+const YourProfileScreen = () => {
   const { control, handleSubmit } = useForm();
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
 
@@ -43,7 +43,7 @@ const ProfileScreen = () => {
           <InputField
             inputHeaderText="Full name"
             control={control}
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             name="fullName"
             placeholder="Madison Smith"
             keyboardType="name-phone-pad"
@@ -59,7 +59,7 @@ const ProfileScreen = () => {
           <InputField
             inputHeaderText="Nickname"
             control={control}
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             keyboardType="name-phone-pad"
             name="NickName"
             placeholder="Madison"
@@ -69,7 +69,7 @@ const ProfileScreen = () => {
             inputHeaderText="Email"
             control={control}
             keyboardType="email-address"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             name="Email"
             placeholder="example@gmail.com"
             rules={{
@@ -84,7 +84,7 @@ const ProfileScreen = () => {
           <InputField
             inputHeaderText="Mobile Number"
             control={control}
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             name="phone"
             keyboardType="number-pad"
             placeholder="+123 567 89000"
@@ -110,4 +110,4 @@ const ProfileScreen = () => {
   );
 };
 
-export default ProfileScreen;
+export default YourProfileScreen;

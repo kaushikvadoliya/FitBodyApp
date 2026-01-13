@@ -36,7 +36,7 @@ const InputField = ({
               <Text
                 style={[
                   styles.inputHeaderText,
-                  { color: textColor ? textColor : colors.black },
+                  { color: textColor ? textColor : colors.black1 },
                 ]}
               >
                 {inputHeaderText}

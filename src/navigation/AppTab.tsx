@@ -1,5 +1,4 @@
 import React from 'react';
-import HomeScreen from '../screens/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image } from 'react-native';
 import { horizontalScale, verticalScale } from '../helper/Scaling';
@@ -36,7 +35,7 @@ const AppTab = () => {
             <Image
               style={{ height: verticalScale(27), width: horizontalScale(25) }}
               tintColor={color}
-              source={require('../assets/icons/homeIcon.png')}
+              source={require('../assets/icons/home.png')}
               resizeMode="contain"
             />
           ),
@@ -50,7 +49,7 @@ const AppTab = () => {
             <Image
               tintColor={color}
               style={{ height: verticalScale(29), width: horizontalScale(25) }}
-              source={require('../assets/icons/resourcesIcon.png')}
+              source={require('../assets/icons/resources.png')}
               resizeMode="contain"
             />
           ),

@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import styles from './style';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import HomeIcons from '../../components/HomeIcons';
 import WorkoutCard from '../../components/WorkoutCard';
 import ArticleCard from '../../components/ArticleCard';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
+import { data } from './data';
 
 const HomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+  const [favoriteWorkouts, setFavoriteWorkouts] = useState<number[]>([]);
+  const [favoriteArticles, setFavoriteArticles] = useState<number[]>([]);
+
+  const workoutData = data.filter(item => item.type != 'Article').slice(0, 2);
+  const articleData = data.filter(item => item.type !== 'Video').slice(0, 2);
+
+  const addFavoriteWorkout = (id: number) => {
+    if (favoriteWorkouts.includes(id)) {
+      const array = favoriteWorkouts.filter(item => item !== id);
+      setFavoriteWorkouts(array);
+    } else {
+      setFavoriteWorkouts([...favoriteWorkouts, id]);
+    }
+  };
+
+  const addFavoriteArticle = (id: number) => {
+    if (favoriteArticles.includes(id)) {
+      const array = favoriteArticles.filter(item => item !== id);
+      setFavoriteArticles(array);
+    } else {
+      setFavoriteArticles([...favoriteArticles, id]);
+    }
+  };
 
   return (
     <Layout>
@@ -35,18 +59,25 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
         <View style={styles.cardContainer}>
-          <WorkoutCard
-            image={require('../../assets/images/workoutImage1.jpg')}
-            text="Squat Excercise"
-            time={12}
-            kcal={120}
-            favourite
-          />
-          <WorkoutCard
-            image={require('../../assets/images/workoutImage2.jpg')}
-            text="Full Body Stretching"
-            time={15}
-            kcal={150}
+          <FlatList
+            data={workoutData}
+            keyExtractor={item => item.id.toString()}
+            contentContainerStyle={styles.flatList}
+            bounces={false}
+            horizontal
+            scrollEnabled={false}
+            renderItem={({ item }) => {
+              return (
+                <WorkoutCard
+                  image={item.image}
+                  text={item.text ?? ''}
+                  time={item.time ?? 12}
+                  kcal={item.kcal ?? 120}
+                  onStar={() => addFavoriteWorkout(item.id)}
+                  favourite={favoriteWorkouts.includes(item.id)}
+                />
+              );
+            }}
           />
         </View>
       </View>
@@ -65,14 +96,23 @@ const HomeScreen = () => {
       <View style={styles.lowerContainer}>
         <Text style={styles.text}>Articles & Tips</Text>
         <View style={styles.lowerInnerContainer}>
-          <ArticleCard
-            text="Suplement Guide more text is available"
-            favourite
-            image={require('../../assets/images/articleImage1.jpg')}
-          />
-          <ArticleCard
-            text="15 Quick & Effective Daily Routines..."
-            image={require('../../assets/images/articleImage2.jpg')}
+          <FlatList
+            data={articleData}
+            keyExtractor={item => item.id.toString()}
+            horizontal
+            contentContainerStyle={styles.flatList}
+            bounces={false}
+            scrollEnabled={false}
+            renderItem={({ item }) => {
+              return (
+                <ArticleCard
+                  image={item.image}
+                  text={item.text ?? ''}
+                  onStar={() => addFavoriteArticle(item.id)}
+                  favourite={favoriteArticles.includes(item.id)}
+                />
+              );
+            }}
           />
         </View>
       </View>

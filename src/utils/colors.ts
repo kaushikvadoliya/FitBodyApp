@@ -7,4 +7,5 @@ export const colors = {
   black1: '#232323',
   liighblack: '#373737',
   lightWhite: '#b2b2b2',
+  placeholderColor: '#391713',
 };

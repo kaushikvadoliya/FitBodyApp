@@ -32,7 +32,7 @@ const SetPasswordScreen = () => {
             name="Password"
             control={control}
             placeholder="enter Password"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             eyeIcon
             rules={{
               required: 'Password is requried',
@@ -48,7 +48,7 @@ const SetPasswordScreen = () => {
             eyeIcon
             control={control}
             placeholder="Renter Password"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             rules={{
               required: 'Password is requried',
               minLength: {

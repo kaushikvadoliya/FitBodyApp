@@ -14,7 +14,7 @@ import WeightScreen from '../screens/WeightScreen';
 import HeightScreen from '../screens/HeightScreen';
 import GoalScreen from '../screens/GoalScreen';
 import PhysicalActivityLevelScreen from '../screens/PhysicalActivityLevelScreen';
-import ProfileScreen from '../screens/ProfileScreen';
+import YourProfileScreen from '../screens/YourProfileScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -41,7 +41,7 @@ const AuthStack = () => {
         name="PhysicalActivityLevel"
         component={PhysicalActivityLevelScreen}
       />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="YourProfile" component={YourProfileScreen} />
     </Stack.Navigator>
   );
 };

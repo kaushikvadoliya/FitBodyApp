@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     fontSize: normalize(17),
     backgroundColor: colors.white,
-    width: horizontalScale(300),
+    width: horizontalScale(310),
     height: verticalScale(42),
     fontFamily: 'League Spartan',
     paddingLeft: horizontalScale(18),

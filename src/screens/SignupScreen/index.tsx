@@ -30,7 +30,7 @@ const SignUpScreen = () => {
             name="Full Name"
             control={control}
             placeholder="example word"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             rules={{
               required: 'FullName is requried',
               minLength: {
@@ -44,7 +44,7 @@ const SignUpScreen = () => {
             name="Email"
             control={control}
             placeholder="example@gmail.com"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             rules={{
               required: 'Email is requried',
               pattern: {
@@ -58,7 +58,7 @@ const SignUpScreen = () => {
             name="Password"
             control={control}
             placeholder="enter Password"
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             eyeIcon
             rules={{
               required: 'Password is requried',
@@ -74,7 +74,7 @@ const SignUpScreen = () => {
             control={control}
             placeholder="Renter Password"
             eyeIcon
-            placeholderTextColor={colors.black1}
+            placeholderTextColor={colors.placeholderColor}
             rules={{
               required: 'Password is requried',
               minLength: {

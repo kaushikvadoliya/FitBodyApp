@@ -34,12 +34,14 @@ const styles = StyleSheet.create({
     gap: verticalScale(5),
     justifyContent: 'center',
   },
-  star: {
+  starContainer: {
     position: 'absolute',
     right: horizontalScale(6),
     top: verticalScale(6),
-    height: verticalScale(15),
-    width: horizontalScale(15),
+  },
+  star: {
+    height: verticalScale(16),
+    width: horizontalScale(16),
   },
   icon: {
     height: verticalScale(9),

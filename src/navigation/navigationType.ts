@@ -13,8 +13,12 @@ export type StackParams = {
   Height: undefined;
   Goal: undefined;
   PhysicalActivityLevel: undefined;
-  Profile: undefined;
+  YourProfile: undefined;
   Home: undefined;
   AppTab: undefined;
   UserProfile: undefined;
+  MyProfile: undefined;
+  Favorites: undefined;
+  Setting: undefined;
+  NotificationsSetting: undefined;
 };

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: colors.primary,
-    height: horizontalScale(288),
+    height: horizontalScale(274),
   },
   header: {
     marginTop: verticalScale(25),
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
   profileImage: {
     borderRadius: 97,
     alignSelf: 'center',
+    marginTop: verticalScale(6),
   },
   name: {
     fontSize: normalize(20),
@@ -47,6 +48,16 @@ const styles = StyleSheet.create({
     fontWeight: '300',
     color: colors.white,
     lineHeight: verticalScale(13),
+  },
+  infoContainer: {
+    position: 'absolute',
+    alignSelf: 'center',
+    top: verticalScale(240),
+  },
+  settingItemContainer: {
+    marginTop: verticalScale(60),
+    alignItems: 'center',
+    gap: verticalScale(14),
   },
 });
 

@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './style';
 
 import { colors } from '../../utils/colors';
@@ -16,6 +16,7 @@ type WorkoutCardProps = {
   favourite?: boolean;
   time: number;
   kcal: number;
+  onStar?: () => void;
 };
 
 const WorkoutCard = ({
@@ -24,13 +25,15 @@ const WorkoutCard = ({
   time,
   kcal,
   favourite,
+  onStar,
 }: WorkoutCardProps) => {
   return (
     <View style={styles.container}>
       <View>
         <Image source={image} style={styles.image} />
-        <TouchableOpacity style={styles.star}>
+        <TouchableOpacity onPress={onStar} style={styles.starContainer}>
           <Image
+            style={styles.star}
             tintColor={favourite ? colors.secondary : colors.white}
             source={require('../../assets/icons/star.png')}
           />
@@ -41,6 +44,7 @@ const WorkoutCard = ({
         <View style={styles.timerKcalContainer}>
           <View style={styles.timerContainer}>
             <Image
+              resizeMode="contain"
               source={require('../../assets/icons/time.png')}
               style={styles.icon}
             />
@@ -49,6 +53,7 @@ const WorkoutCard = ({
           <View style={styles.timerContainer}>
             <Image
               source={require('../../assets/icons/calories.png')}
+              resizeMode="contain"
               style={styles.icon}
             />
             <Text style={styles.timerText}>{kcal} Kcal</Text>

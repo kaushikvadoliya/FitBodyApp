@@ -45,7 +45,7 @@ const PhysicalActivityLevelScreen = () => {
         <View style={styles.buttonContainer}>
           <PrimaryButton
             transpharent
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => navigation.navigate('YourProfile')}
             text="Continue"
             style={styles.button}
           />

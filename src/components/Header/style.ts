@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
     width: horizontalScale(19),
     height: verticalScale(18),
   },
+  backContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: horizontalScale(10),
+  },
+
   mainContainer: {
     alignItems: 'center',
     flexDirection: 'row',

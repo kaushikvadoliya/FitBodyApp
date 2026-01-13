@@ -37,7 +37,7 @@ const LoginScreen = () => {
               name="email"
               placeholder="example@gmail.com"
               control={control}
-              placeholderTextColor={colors.black1}
+              placeholderTextColor={colors.placeholderColor}
               rules={{
                 required: 'Email is required',
                 pattern: {
@@ -51,7 +51,7 @@ const LoginScreen = () => {
               name="password"
               placeholder="enter secure password"
               control={control}
-              placeholderTextColor={colors.black1}
+              placeholderTextColor={colors.placeholderColor}
               eyeIcon
               rules={{
                 required: 'Password is required',

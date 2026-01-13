@@ -63,7 +63,7 @@ const Button = ({ varient, text, select, onPress }: ButtonTabType) => {
         style={[
           getTextStyle(),
           {
-            color: isSelected ? colors.black : colors.purple,
+            color: isSelected ? colors.black1 : colors.purple,
             textAlign: 'center',
           },
         ]}

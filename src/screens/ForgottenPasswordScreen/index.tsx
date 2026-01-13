@@ -9,6 +9,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
+import { colors } from '../../utils/colors';
 
 const ForgottenPasswordScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
@@ -32,6 +33,7 @@ const ForgottenPasswordScreen = () => {
             name="Enter Your email address"
             control={control}
             placeholder="example@gmail.com"
+            placeholderTextColor={colors.placeholderColor}
             rules={{
               required: 'Email is required',
               pattern: {

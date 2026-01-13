@@ -7,12 +7,16 @@ const styles = StyleSheet.create({
   image: {
     width: horizontalScale(157),
     height: verticalScale(134),
-    borderRadius: 20,
+    borderRadius: 23,
   },
   starIcon: {
     position: 'absolute',
     top: verticalScale(8),
     right: horizontalScale(8),
+  },
+  star: {
+    height: verticalScale(16),
+    width: horizontalScale(16),
   },
   text: {
     fontFamily: 'Poppins',

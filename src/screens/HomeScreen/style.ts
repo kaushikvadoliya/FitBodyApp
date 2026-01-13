@@ -32,9 +32,10 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginTop: verticalScale(8),
-    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  flatList: {
     gap: horizontalScale(10),
-    justifyContent: 'center',
   },
   seeAllText: {
     fontFamily: 'Poppins',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: verticalScale(125),
     width: horizontalScale(324),
-    backgroundColor: colors.black,
+    backgroundColor: colors.black1,
     justifyContent: 'space-between',
     borderRadius: 20,
   },
@@ -95,10 +96,8 @@ const styles = StyleSheet.create({
     marginHorizontal: horizontalScale(20),
   },
   lowerInnerContainer: {
-    flexDirection: 'row',
-    gap: horizontalScale(10),
-    justifyContent: 'center',
     marginTop: verticalScale(10),
+    alignItems: 'center',
   },
 });
 
