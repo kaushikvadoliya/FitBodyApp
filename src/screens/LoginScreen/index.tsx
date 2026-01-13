@@ -71,6 +71,7 @@ const LoginScreen = () => {
         </View>
         <PrimaryButton
           text="Log In"
+          transpharent
           onPress={handleSubmit(login)}
           style={styles.button}
         />

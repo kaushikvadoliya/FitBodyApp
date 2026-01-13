@@ -60,6 +60,7 @@ const SetPasswordScreen = () => {
           />
         </View>
         <PrimaryButton
+          transpharent
           text="Reset Password"
           style={styles.button}
           onPress={handleSubmit(verifyOtp)}

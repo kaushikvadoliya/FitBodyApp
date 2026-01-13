@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { verticalScale } from '../../helper/Scaling';
+import { horizontalScale, verticalScale } from '../../helper/Scaling';
 import { colors } from '../../utils/colors';
 import { normalize } from '../../helper/DynamicSize';
 
@@ -27,10 +27,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     lineHeight: verticalScale(14),
-    marginTop: verticalScale(25),
+    marginTop: verticalScale(30),
   },
   sliderContainer: {
-    marginTop: verticalScale(86),
+    marginTop: verticalScale(46),
   },
   button: {
     alignSelf: 'center',
@@ -38,6 +38,32 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: 'flex-end',
     flex: 1,
+  },
+  unitTextContainer: {
+    justifyContent: 'center',
+    width: horizontalScale(48),
+    height: horizontalScale(32),
+  },
+  unitContainer: {
+    backgroundColor: colors.secondary,
+    alignSelf: 'center',
+    height: verticalScale(58),
+    width: horizontalScale(322),
+    borderRadius: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginTop: verticalScale(50),
+  },
+  unitText: {
+    fontWeight: '700',
+    fontSize: normalize(20),
+    textAlign: 'center',
+  },
+  devider: {
+    height: verticalScale(40),
+    backgroundColor: colors.black,
+    borderWidth: 1.5,
   },
 });
 

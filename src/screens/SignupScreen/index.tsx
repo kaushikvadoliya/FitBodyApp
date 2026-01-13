@@ -12,7 +12,6 @@ import FooterText from '../../components/FooterText';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
-import { verticalScale } from '../../helper/Scaling';
 
 const SignUpScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
@@ -22,7 +21,7 @@ const SignUpScreen = () => {
   };
   const { control, handleSubmit } = useForm();
   return (
-    <Layout>
+    <Layout scrolled>
       <AuthHeader text="Create Account" style={styles.header} />
       <View style={styles.mainContainer}>
         <Text style={styles.heading}>Let's Start!</Text>
@@ -93,6 +92,7 @@ const SignUpScreen = () => {
           </Text>
         </View>
         <PrimaryButton
+          transpharent
           text="Sign Up"
           onPress={handleSubmit(signUp)}
           style={styles.button}

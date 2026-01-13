@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
   inputHeaderText: {
     fontSize: normalize(16),
     fontWeight: '600',
-    color: colors.black1,
     left: 4,
   },
   error: {

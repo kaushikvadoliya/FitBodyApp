@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     height: verticalScale(84),
     justifyContent: 'center',
-    marginTop: verticalScale(25),
+    marginTop: verticalScale(30),
   },
   genderContainer: {
     gap: verticalScale(20),

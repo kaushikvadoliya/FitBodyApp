@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     width: horizontalScale(326),
   },
   footerContainer: {
-    marginTop: verticalScale(30),
     gap: verticalScale(56),
+    justifyContent: 'flex-end',
+    flex: 1,
   },
   header: { marginTop: verticalScale(10) },
 });

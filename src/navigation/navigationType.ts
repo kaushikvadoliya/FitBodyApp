@@ -10,4 +10,11 @@ export type StackParams = {
   Gender: undefined;
   Age: undefined;
   Weight: undefined;
+  Height: undefined;
+  Goal: undefined;
+  PhysicalActivityLevel: undefined;
+  Profile: undefined;
+  Home: undefined;
+  AppTab: undefined;
+  UserProfile: undefined;
 };

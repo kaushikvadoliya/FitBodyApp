@@ -8,15 +8,17 @@ import { colors } from '../../utils/colors';
 type Props = {
   name: string;
   control: Control<any>;
-  rules: RegisterOptions;
+  rules?: RegisterOptions;
   inputHeaderText: string;
   eyeIcon?: boolean;
+  textColor?: string;
 } & TextInputProps;
 
 const InputField = ({
   control,
   name,
   eyeIcon,
+  textColor,
   inputHeaderText,
   rules,
   ...rest
@@ -31,7 +33,14 @@ const InputField = ({
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <>
             <View style={styles.container}>
-              <Text style={styles.inputHeaderText}>{inputHeaderText}</Text>
+              <Text
+                style={[
+                  styles.inputHeaderText,
+                  { color: textColor ? textColor : colors.black },
+                ]}
+              >
+                {inputHeaderText}
+              </Text>
               <View style={styles.eyeInputContainer}>
                 <TextInput
                   style={styles.withEyeInput}
@@ -64,6 +73,7 @@ const InputField = ({
       />
     );
   }
+
   return (
     <Controller
       control={control}
@@ -72,7 +82,14 @@ const InputField = ({
       render={({ field: { onChange, value }, fieldState: { error } }) => (
         <>
           <View style={styles.container}>
-            <Text style={styles.inputHeaderText}>{inputHeaderText}</Text>
+            <Text
+              style={[
+                styles.inputHeaderText,
+                { color: textColor ? textColor : colors.black1 },
+              ]}
+            >
+              {inputHeaderText}
+            </Text>
             <TextInput
               style={styles.input}
               value={value}

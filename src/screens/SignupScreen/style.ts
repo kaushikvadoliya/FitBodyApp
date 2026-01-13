@@ -35,12 +35,13 @@ const styles = StyleSheet.create({
   },
   highlightText: {
     color: colors.secondary,
-    fontSize: normalize(13),
-    fontWeight: '400',
+    fontSize: normalize(12),
+    fontWeight: '600',
   },
   footerContainer: {
-    marginTop: verticalScale(18),
+    flex: 1,
     gap: verticalScale(20),
+    justifyContent: 'flex-end',
   },
   button: {
     alignSelf: 'center',

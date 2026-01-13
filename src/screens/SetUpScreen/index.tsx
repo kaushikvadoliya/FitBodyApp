@@ -30,6 +30,7 @@ const SetUpScreen = () => {
       </View>
       <View style={styles.buttonContainer}>
         <PrimaryButton
+          transpharent
           onPress={() => navigation.navigate('Gender')}
           text="Continue"
           style={styles.button}

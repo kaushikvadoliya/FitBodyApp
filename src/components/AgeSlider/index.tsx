@@ -1,16 +1,17 @@
 import { Animated, View, Text, Dimensions, Image } from 'react-native';
 import React, { useRef, useState } from 'react';
 import styles from './style';
-import { verticalScale } from '../../helper/Scaling';
 const { width } = Dimensions.get('window');
 
 const Ages = Array.from({ length: 50 }, (_, i) => i + 20);
 export const Item_width = width / 5;
 const spacer_width = (width - Item_width) / 2;
 
+const initailOffset = Item_width * 2;
+
 const AgeSlider = () => {
   const [age, setAge] = useState<number>(Ages[2]);
-  const scrollX = useRef(new Animated.Value(0)).current;
+  const scrollX = useRef(new Animated.Value(initailOffset)).current;
 
   const handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { x: scrollX } } }],

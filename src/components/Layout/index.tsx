@@ -1,39 +1,38 @@
-import { Platform, StyleProp, View, ViewStyle } from 'react-native';
 import React, { ReactNode } from 'react';
-import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
+import { ScrollView, StyleProp, View, ViewStyle } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  KeyboardStickyView,
+} from 'react-native-keyboard-controller';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './style';
 
 type LayoutProps = {
-  children?: ReactNode;
+  children: ReactNode;
   style?: StyleProp<ViewStyle>;
   fullScreen?: boolean;
+  scrolled?: boolean;
 };
 
-const Layout = ({ children, style, fullScreen }: LayoutProps) => {
-  if (fullScreen) {
+const Layout = ({ children, style, scrolled, fullScreen }: LayoutProps) => {
+  const Wrapper = fullScreen ? View : SafeAreaView;
+  if (!scrolled) {
     return (
-      <View style={[style, styles.container]}>
-        <KeyboardAvoidingView
-          behavior="padding"
-          style={{ flex: 1 }}
-          keyboardVerticalOffset={30}
-        >
+      <Wrapper style={[{ flex: 1 }, styles.container, style]}>
+        <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
           {children}
         </KeyboardAvoidingView>
-      </View>
+      </Wrapper>
     );
   }
   return (
-    <SafeAreaView style={[style, styles.container]}>
-      <KeyboardAvoidingView
-        behavior="padding"
-        style={{ flex: 1 }}
-        keyboardVerticalOffset={30}
-      >
-        {children}
+    <Wrapper style={[{ flex: 1 }, styles.container, style]}>
+      <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          {children}
+        </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </Wrapper>
   );
 };
 

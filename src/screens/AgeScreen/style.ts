@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     lineHeight: verticalScale(14),
-    marginTop: verticalScale(25),
+    marginTop: verticalScale(30),
   },
   sliderContainer: {
     marginTop: verticalScale(86),

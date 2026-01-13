@@ -39,6 +39,7 @@ const GenderScreen = () => {
         </View>
         <View style={styles.buttonContainer}>
           <PrimaryButton
+            transpharent
             text="continue"
             onPress={() => navigation.navigate('Age')}
             style={styles.button}

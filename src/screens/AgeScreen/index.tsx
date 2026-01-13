@@ -27,6 +27,7 @@ const AgeScreen = () => {
         </View>
         <View style={styles.buttonContainer}>
           <PrimaryButton
+            transpharent
             onPress={() => navigation.navigate('Weight')}
             text="Continue"
             style={styles.button}

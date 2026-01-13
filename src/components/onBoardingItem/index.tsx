@@ -4,7 +4,7 @@ import { OnBoardingDataType } from '../../screens/OnBoardingScreen/onBoardingDat
 import styles from './style';
 import Pagination from '../Pagination';
 import SkipButton from '../SkipButton';
-import PrimaryButton from '../PrimaryButton';
+import PrimaryButton from '../../components/PrimaryButton/index';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
@@ -37,6 +37,7 @@ const OnBoardingItem = ({ item, onPress }: OnBoardingItemProps) => {
           <Pagination page={item.id} />
         </View>
         <PrimaryButton
+          transpharent
           style={styles.button}
           text={item.buttonText}
           onPress={onPress}

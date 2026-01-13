@@ -9,21 +9,30 @@ import React from 'react';
 import styles from './style';
 
 type ButtonProps = {
+  transpharent?: boolean;
   text: string;
   onPress: () => void;
   style?: StyleProp<ViewStyle>;
 } & TouchableOpacityProps;
 
-const PrimaryButton = ({ onPress, text, style, ...rest }: ButtonProps) => {
+const PrimaryButton = ({
+  onPress,
+  transpharent,
+  text,
+  style,
+  ...rest
+}: ButtonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, style]}
+      style={[transpharent ? styles.transpharentButton : styles.button, style]}
       {...rest}
     >
-      {/* <BlurView blurAmount={4} blurType="light" style={styles.blurContainer}> */}
-      <Text style={styles.buttonText}>{text}</Text>
-      {/* </BlurView> */}
+      <Text
+        style={transpharent ? styles.transpharentButtonText : styles.buttonText}
+      >
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };

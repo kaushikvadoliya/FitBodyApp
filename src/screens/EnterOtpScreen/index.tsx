@@ -42,6 +42,7 @@ const EnterOtpScreen = () => {
           />
         </View>
         <PrimaryButton
+          transpharent
           text="Send Otp"
           style={styles.button}
           onPress={handleSubmit(verifyOtp)}

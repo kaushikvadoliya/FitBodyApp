@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { colors } from '../../utils/colors';
-import { horizontalScale } from '../../helper/Scaling';
+import { horizontalScale, verticalScale } from '../../helper/Scaling';
 import { normalize } from '../../helper/DynamicSize';
 
 const styles = StyleSheet.create({
-  button: {
+  transpharentButton: {
     minWidth: horizontalScale(200),
     height: 48,
     borderRadius: 100,
@@ -19,16 +19,24 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(100,100,100,0.6)',
     paddingHorizontal: horizontalScale(20),
   },
-  // blurContainer: {
-  //   flex: 1,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   borderRadius: 23,
-  // },
-  buttonText: {
+  transpharentButtonText: {
     color: colors.white,
     fontSize: normalize(18),
     fontWeight: '800',
+  },
+  buttonText: {
+    color: colors.black,
+    fontSize: normalize(17),
+    fontWeight: '400',
+  },
+  button: {
+    paddingHorizontal: horizontalScale(20),
+    height: verticalScale(34),
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 100,
+    backgroundColor: colors.secondary,
+    minWidth: horizontalScale(150),
   },
 });
 
