@@ -4,7 +4,6 @@ import { colors } from '../../utils/colors';
 import styles from './style';
 import { ViewStyle } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { horizontalScale } from '../../helper/Scaling';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
 type HeaderProps = {
@@ -33,33 +32,51 @@ const Header = ({
   return (
     <View style={[styles.mainContainer, style]}>
       <View style={styles.backTextContainer}>
-        <TouchableOpacity
-          style={styles.backContainer}
-          onPress={() => navigation.goBack()}
-        >
-          {backButton && (
+        {backButton && (
+          <TouchableOpacity
+            style={styles.backContainer}
+            onPress={() => navigation.goBack()}
+          >
             <Image
               style={styles.back}
               tintColor={backButtonColorWhite ? colors.white : colors.secondary}
               source={require('../../assets/icons/leftArrow.png')}
             />
-          )}
-          {text && (
-            <Text
-              style={[
-                styles.text,
-                { color: colorWhite ? colors.white : colors.purple },
-              ]}
-            >
-              {text}
-            </Text>
-          )}
-        </TouchableOpacity>
+
+            {text && (
+              <Text
+                style={[
+                  styles.text,
+                  { color: colorWhite ? colors.white : colors.purple },
+                ]}
+              >
+                {text}
+              </Text>
+            )}
+          </TouchableOpacity>
+        )}
+        {text && !backButton && (
+          <Text
+            style={[
+              styles.text,
+              { color: colorWhite ? colors.white : colors.purple },
+            ]}
+          >
+            {text}
+          </Text>
+        )}
       </View>
       {icons && (
         <View style={styles.iconContainer}>
           {search && (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.reset({
+                  index: 1,
+                  routes: [{ name: 'Home' }, { name: 'Search' }],
+                })
+              }
+            >
               <Image
                 tintColor={colorWhite ? colors.white : colors.purple}
                 source={require('../../assets/icons/search.png')}
@@ -76,7 +93,14 @@ const Header = ({
               />
             </TouchableOpacity>
           )}
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.reset({
+                index: 1,
+                routes: [{ name: 'Home' }, { name: 'Notification' }],
+              })
+            }
+          >
             <Image
               tintColor={colorWhite ? colors.white : colors.purple}
               source={require('../../assets/icons/notifications.png')}

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     fontSize: normalize(17),
     backgroundColor: colors.white,
-    width: horizontalScale(310),
+    width: horizontalScale(320),
     height: verticalScale(42),
     fontFamily: 'League Spartan',
     paddingLeft: horizontalScale(18),
@@ -21,15 +21,14 @@ const styles = StyleSheet.create({
   },
   eyeInputContainer: {
     flexDirection: 'row',
-    width: horizontalScale(300),
-
+    width: horizontalScale(320),
     backgroundColor: colors.white,
     borderRadius: 15,
     alignItems: 'center',
   },
   withEyeInput: {
     fontSize: normalize(17),
-    width: horizontalScale(256),
+    width: horizontalScale(280),
     height: verticalScale(42),
     paddingLeft: horizontalScale(18),
     fontFamily: 'League Spartan',

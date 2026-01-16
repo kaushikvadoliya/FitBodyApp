@@ -1,17 +1,36 @@
 import { View, Text } from 'react-native';
-import React from 'react';
-import Layout from '../../components/Layout';
+import React, { useRef } from 'react';
 import Header from '../../components/Header';
 import styles from './style';
 import { Image } from 'react-native';
 import UserInfoTab from '../../components/UserInfoTab';
 import SettingItem from '../../components/SettingItem';
-import { useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
+import SimpleBottomSheet from '../../components/BottomSheet';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
+import { navigationRef } from '../../navigation/MainStack';
+import Layout from '../../components/Layout';
 
 const UserProfileScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  const openBottomSheet = () => {
+    bottomSheetModalRef.current?.present();
+  };
+
+  const logout = () => {
+    bottomSheetModalRef.current?.close();
+
+    navigationRef.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [{ name: 'AuthStack', params: { screen: 'Login' } }],
+      }),
+    );
+  };
 
   return (
     <Layout>
@@ -64,13 +83,21 @@ const UserProfileScreen = () => {
             text="Help"
             buttonIcon={require('../../assets/icons/rightArrow.png')}
             icon={require('../../assets/icons/support.png')}
+            onPress={() => navigation.navigate('Help')}
           />
           <SettingItem
             text="Logout"
             buttonIcon={require('../../assets/icons/rightArrow.png')}
             icon={require('../../assets/icons/logout.png')}
+            onPress={openBottomSheet}
           />
         </View>
+        <SimpleBottomSheet
+          onLogout={logout}
+          height={220}
+          ref={bottomSheetModalRef}
+          onClose={() => bottomSheetModalRef.current?.close()}
+        />
       </View>
     </Layout>
   );

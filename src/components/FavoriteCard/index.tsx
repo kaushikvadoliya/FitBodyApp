@@ -6,14 +6,19 @@ import { colors } from '../../utils/colors';
 
 type FavoriteCardProps = {
   item: DataType;
-  onStar: () => void;
+  favorite?: boolean;
+  onPressFavorite?: () => void;
 };
 
-const FavoriteCard = ({ item, onStar }: FavoriteCardProps) => {
+const FavoriteCard = ({
+  item,
+  onPressFavorite,
+  favorite,
+}: FavoriteCardProps) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.textContainer}>
-        {item.type === 'Article' ? (
+        {item.type === 'Article' || item.type === 'Nutrition' ? (
           <>
             <Text style={styles.title}>{item.title}</Text>
             {item.text && (
@@ -46,7 +51,7 @@ const FavoriteCard = ({ item, onStar }: FavoriteCardProps) => {
           </>
         ) : (
           <>
-            <Text style={styles.title}>{item.text}</Text>
+            <Text style={styles.title}>{item.title}</Text>
             <View style={styles.lowerTextContainer}>
               <View style={styles.innerTextContainer}>
                 <View style={styles.iconTextContaianer}>
@@ -82,14 +87,14 @@ const FavoriteCard = ({ item, onStar }: FavoriteCardProps) => {
         )}
       </View>
       <Image style={styles.image} source={item.image} resizeMode="cover" />
-      <TouchableOpacity style={styles.starcontainer} onPress={onStar}>
+      <TouchableOpacity style={styles.starcontainer} onPress={onPressFavorite}>
         <Image
           style={styles.star}
-          tintColor={colors.secondary}
+          tintColor={favorite ? colors.secondary : colors.white}
           source={require('../../assets/icons/star.png')}
         />
       </TouchableOpacity>
-      {item.type === 'Video' && (
+      {item.video && (
         <TouchableOpacity style={styles.playIcon}>
           <Image source={require('../../assets/icons/playVideo.png')} />
         </TouchableOpacity>

@@ -33,10 +33,12 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    marginBottom: verticalScale(30),
   },
   buttonContainer: {
     justifyContent: 'flex-end',
+    flex: 1,
+  },
+  mainContainer: {
     flex: 1,
   },
 });

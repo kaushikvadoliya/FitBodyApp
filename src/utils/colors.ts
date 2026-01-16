@@ -8,4 +8,5 @@ export const colors = {
   liighblack: '#373737',
   lightWhite: '#b2b2b2',
   placeholderColor: '#391713',
+  grey: '#676767',
 };

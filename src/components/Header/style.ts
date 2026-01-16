@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: horizontalScale(18),
+    paddingHorizontal: horizontalScale(20),
   },
   backTextContainer: {
     flexDirection: 'row',

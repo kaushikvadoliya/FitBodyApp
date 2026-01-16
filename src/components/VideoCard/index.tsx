@@ -5,12 +5,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './style';
 
 import { colors } from '../../utils/colors';
 
-type WorkoutCardProps = {
+type VideoCardProps = {
   text: string;
   image: ImageSourcePropType;
   favourite?: boolean;
@@ -19,14 +19,14 @@ type WorkoutCardProps = {
   onStar?: () => void;
 };
 
-const WorkoutCard = ({
+const VideoCard = ({
   text,
   image,
   time,
   kcal,
   favourite,
   onStar,
-}: WorkoutCardProps) => {
+}: VideoCardProps) => {
   return (
     <View style={styles.container}>
       <View>
@@ -47,6 +47,7 @@ const WorkoutCard = ({
               resizeMode="contain"
               source={require('../../assets/icons/time.png')}
               style={styles.icon}
+              tintColor={colors.purple}
             />
             <Text style={styles.timerText}>{time} Minutes</Text>
           </View>
@@ -55,6 +56,7 @@ const WorkoutCard = ({
               source={require('../../assets/icons/calories.png')}
               resizeMode="contain"
               style={styles.icon}
+              tintColor={colors.purple}
             />
             <Text style={styles.timerText}>{kcal} Kcal</Text>
           </View>
@@ -67,4 +69,4 @@ const WorkoutCard = ({
   );
 };
 
-export default WorkoutCard;
+export default VideoCard;

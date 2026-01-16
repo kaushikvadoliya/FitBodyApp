@@ -18,7 +18,7 @@ const Layout = ({ children, style, scrolled, fullScreen }: LayoutProps) => {
   const Wrapper = fullScreen ? View : SafeAreaView;
   if (!scrolled) {
     return (
-      <Wrapper style={[{ flex: 1 }, styles.container, style]}>
+      <Wrapper edges={['top']} style={[{ flex: 1 }, styles.container, style]}>
         <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
           {children}
         </KeyboardAvoidingView>
@@ -26,9 +26,13 @@ const Layout = ({ children, style, scrolled, fullScreen }: LayoutProps) => {
     );
   }
   return (
-    <Wrapper style={[{ flex: 1 }, styles.container, style]}>
+    <Wrapper edges={['top']} style={[{ flex: 1 }, styles.container, style]}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }} bounces={false}>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+        >
           {children}
         </ScrollView>
       </KeyboardAvoidingView>

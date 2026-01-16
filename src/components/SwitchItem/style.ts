@@ -21,6 +21,19 @@ const styles = StyleSheet.create({
     height: verticalScale(15),
     width: horizontalScale(31),
   },
+  thumb: {
+    height: verticalScale(12),
+    width: horizontalScale(12),
+    backgroundColor: colors.white,
+    borderRadius: 6,
+    margin: 2,
+    left: horizontalScale(8),
+  },
+  track: {
+    height: verticalScale(16),
+    width: horizontalScale(32),
+    borderRadius: 100,
+  },
 });
 
 export default styles;

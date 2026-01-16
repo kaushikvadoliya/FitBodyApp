@@ -12,9 +12,11 @@ import FooterText from '../../components/FooterText';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const SignUpScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+  const insets = useSafeAreaInsets();
 
   const signUp = () => {
     navigation.navigate('SetUp');
@@ -23,7 +25,9 @@ const SignUpScreen = () => {
   return (
     <Layout scrolled>
       <AuthHeader text="Create Account" style={styles.header} />
-      <View style={styles.mainContainer}>
+      <View
+        style={[styles.mainContainer, { paddingBottom: insets.bottom + 20 }]}
+      >
         <Text style={styles.heading}>Let's Start!</Text>
         <View style={styles.inputContainer}>
           <InputField

@@ -65,6 +65,7 @@ const HomeIcons = ({
       data={iconData}
       keyExtractor={item => item.id.toString()}
       horizontal
+      scrollEnabled={false}
       style={style}
       renderItem={({ item }) => {
         return (

@@ -2,6 +2,7 @@ export type StackParams = {
   Welcome: undefined;
   OnBoarding: undefined;
   Login: undefined;
+  AuthStack: undefined;
   SignUp: undefined;
   SetUp: undefined;
   ForgottenPassword: undefined;
@@ -21,4 +22,9 @@ export type StackParams = {
   Favorites: undefined;
   Setting: undefined;
   NotificationsSetting: undefined;
+  PasswordSetting: undefined;
+  Help: undefined;
+  Notification: undefined;
+  Search: undefined;
+  Workout: undefined;
 };

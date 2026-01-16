@@ -8,15 +8,17 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
 import Slider from '../../components/Slider';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const WeightScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const [unit, setUnit] = useState<string>('kg');
+  const insets = useSafeAreaInsets();
 
   return (
     <Layout>
       <AuthHeader backText style={styles.header} />
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, { paddingBottom: insets.bottom }]}>
         <Text style={styles.heading}>What is Your Weight ?</Text>
         <Text style={styles.text}>
           Slide the meter to select your Weight. This helps FitBody calculate

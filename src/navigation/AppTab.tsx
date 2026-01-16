@@ -20,6 +20,7 @@ const AppTab = () => {
           backgroundColor: colors.primary,
           height: verticalScale(70),
         },
+
         tabBarActiveTintColor: colors.purple,
         tabBarInactiveTintColor: colors.white,
         tabBarItemStyle: {

@@ -1,16 +1,21 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import MainStack from './src/navigation/MainStack';
+import MainStack, { navigationRef } from './src/navigation/MainStack';
 import { NavigationContainer } from '@react-navigation/native';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 const App = () => {
   return (
-    <KeyboardProvider>
-      <NavigationContainer>
-        <MainStack />
-      </NavigationContainer>
-    </KeyboardProvider>
+    <GestureHandlerRootView>
+      <BottomSheetModalProvider>
+        <KeyboardProvider>
+          <NavigationContainer ref={navigationRef}>
+            <MainStack />
+          </NavigationContainer>
+        </KeyboardProvider>
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 };
 

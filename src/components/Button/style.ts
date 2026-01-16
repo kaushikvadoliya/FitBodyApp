@@ -20,20 +20,21 @@ const styles = StyleSheet.create({
     lineHeight: verticalScale(20),
   },
   lgContainer: {
-    width: horizontalScale(152),
-    height: verticalScale(30),
+    width: horizontalScale(156),
+    height: verticalScale(32),
     borderRadius: 38,
   },
   mdText: {
-    fontSize: normalize(17),
+    fontSize: normalize(15),
     fontWeight: '500',
     fontFamily: 'League Spartan',
     lineHeight: verticalScale(20),
   },
   mdContainer: {
-    width: horizontalScale(104),
-    height: verticalScale(32),
+    minWidth: horizontalScale(104),
+    height: verticalScale(30),
     borderRadius: 38,
+    paddingHorizontal: horizontalScale(15),
   },
   smText: {
     fontSize: normalize(12),

@@ -23,11 +23,13 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: normalize(18),
     fontWeight: '800',
+    fontFamily: 'League Spartan',
   },
   buttonText: {
     color: colors.black,
     fontSize: normalize(17),
     fontWeight: '400',
+    fontFamily: 'League Spartan',
   },
   button: {
     paddingHorizontal: horizontalScale(20),

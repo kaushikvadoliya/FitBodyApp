@@ -18,7 +18,7 @@ const MyProfileScreen = () => {
     navigation.goBack();
   };
   return (
-    <Layout scrolled edges={['top']}>
+    <Layout scrolled>
       <View style={styles.mainContainer}>
         <View style={styles.headerContainer}>
           <Header

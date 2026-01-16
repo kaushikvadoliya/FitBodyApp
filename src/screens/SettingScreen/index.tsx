@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
@@ -25,6 +25,7 @@ const SettingScreen = () => {
           text="Password Setting"
           buttonIcon={require('../../assets/icons/downArrow.png')}
           icon={require('../../assets/icons/key.png')}
+          onPress={() => navigation.navigate('PasswordSetting')}
         />
         <SettingItem
           text="Delete Account"

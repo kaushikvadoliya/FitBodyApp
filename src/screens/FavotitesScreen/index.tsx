@@ -15,8 +15,8 @@ const FavoritesScreen = () => {
       return favorites;
     }
     return select === 'Video'
-      ? favorites.filter(item => item.type === 'Video')
-      : favorites.filter(item => item.type !== 'Video');
+      ? favorites.filter(item => item.type === 'workOut')
+      : favorites.filter(item => item.type !== 'workOut');
   }, [favorites, select]);
 
   const removeFavorite = (id: number) => {
@@ -61,7 +61,8 @@ const FavoritesScreen = () => {
               return (
                 <FavoriteCard
                   item={item}
-                  onStar={() => removeFavorite(item.id)}
+                  favorite
+                  onPressFavorite={() => removeFavorite(item.id)}
                 />
               );
             }}

@@ -10,10 +10,12 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
 import PrimaryButton from '../../components/PrimaryButton';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const YourProfileScreen = () => {
   const { control, handleSubmit } = useForm();
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+  const insets = useSafeAreaInsets();
 
   const checkDetails = () => {
     navigation.navigate('AppTab');
@@ -21,7 +23,7 @@ const YourProfileScreen = () => {
   return (
     <Layout scrolled>
       <AuthHeader backText />
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, { paddingBottom: insets.bottom }]}>
         <Text style={styles.heading}>Fill Your Profile</Text>
         <Text style={styles.text}>
           Enter your name and contact info to finalize your account, allowing us

@@ -4,6 +4,9 @@ import { normalize } from '../../helper/DynamicSize';
 import { colors } from '../../utils/colors';
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
   subTitle: {
     fontFamily: 'League Spartan',
     fontSize: normalize(13),

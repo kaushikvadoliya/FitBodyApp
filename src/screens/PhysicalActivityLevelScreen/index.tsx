@@ -8,15 +8,17 @@ import PrimaryButton from '../../components/PrimaryButton';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const PhysicalActivityLevelScreen = () => {
   const [select, setSelect] = useState<string>('Advance');
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
+  const insets = useSafeAreaInsets();
 
   return (
     <Layout>
       <AuthHeader backText />
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, { paddingBottom: insets.bottom }]}>
         <Text style={styles.heading}>Physical Activity Level</Text>
         <Text style={styles.text}>
           Select your current activity level to ensure your fitness plan
