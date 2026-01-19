@@ -31,6 +31,7 @@ const AgeSlider = () => {
       <Image
         style={styles.upArrow}
         source={require('../../assets/icons/upArrow.png')}
+        resizeMode="contain"
       />
       <Animated.FlatList
         data={Ages}

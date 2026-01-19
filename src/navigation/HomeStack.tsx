@@ -11,6 +11,8 @@ import HelpScreen from '../screens/HelpScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import SearchScreen from '../screens/SearchScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
+import RoundScreen from '../screens/RoundScreen';
+import VideoScreen from '../screens/VideoScreen';
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -30,6 +32,8 @@ const HomeStack = () => {
       <Stack.Screen name="Notification" component={NotificationScreen} />
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen name="Workout" component={WorkoutScreen} />
+      <Stack.Screen name="Round" component={RoundScreen} />
+      <Stack.Screen name="Video" component={VideoScreen} />
     </Stack.Navigator>
   );
 };

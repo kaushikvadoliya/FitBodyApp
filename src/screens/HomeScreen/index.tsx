@@ -56,6 +56,7 @@ const HomeScreen = () => {
               <Image
                 style={styles.rightArrow}
                 source={require('../../assets/icons/rightArrow.png')}
+                resizeMode="contain"
               />
             </TouchableOpacity>
           </View>
@@ -91,6 +92,7 @@ const HomeScreen = () => {
             <Image
               style={styles.image}
               source={require('../../assets/images/workoutImage3.jpg')}
+              resizeMode="contain"
             />
           </View>
         </View>

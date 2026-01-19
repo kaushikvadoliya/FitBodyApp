@@ -9,4 +9,5 @@ export const colors = {
   lightWhite: '#b2b2b2',
   placeholderColor: '#391713',
   grey: '#676767',
+  lightBlack: '#212020E5',
 };

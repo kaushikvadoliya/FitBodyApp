@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     marginHorizontal: horizontalScale(20),
-    alignItems: 'center',
   },
   buttonContainer: {
     flexDirection: 'row',
     gap: horizontalScale(16),
     marginTop: verticalScale(18),
+    justifyContent: 'center',
   },
   sectoinTitle: {
     fontFamily: 'Poppins',
@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
   },
   sectionlist: {
     marginTop: verticalScale(14),
-    paddingBottom: verticalScale(100),
+    flex: 1,
+    alignItems: 'center',
   },
 });
 

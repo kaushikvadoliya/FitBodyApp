@@ -33,11 +33,13 @@ const YourProfileScreen = () => {
           <Image
             style={styles.image}
             source={require('../../assets/images/profile.jpg')}
+            resizeMode="contain"
           />
           <TouchableOpacity>
             <Image
               style={styles.pencilIcon}
               source={require('../../assets/icons/pencil.png')}
+              resizeMode="contain"
             />
           </TouchableOpacity>
         </View>

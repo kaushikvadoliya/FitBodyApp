@@ -16,6 +16,7 @@ const SearchItem = ({ item }: SearchItemProps) => {
           style={styles.icon}
           tintColor={colors.purple}
           source={require('../../assets/icons/search.png')}
+          resizeMode="contain"
         />
       </View>
       <Text style={styles.text}>{item.text}</Text>

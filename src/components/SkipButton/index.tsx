@@ -20,6 +20,7 @@ const SkipButton = ({ onPress, style }: skipButtonProps) => {
       <Image
         style={styles.icon}
         source={require('../../assets/icons/rightArrow.png')}
+        resizeMode="contain"
       />
     </TouchableOpacity>
   );

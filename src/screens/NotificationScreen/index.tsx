@@ -32,18 +32,14 @@ const NotificationScreen = () => {
             onPress={() => setActiveTab('System')}
           />
         </View>
-        <View>
+        <View style={styles.sectionlist}>
           <SectionList
             sections={notificationData}
             keyExtractor={item => item.id}
-            style={styles.sectionlist}
             showsVerticalScrollIndicator={false}
             stickySectionHeadersEnabled={false}
             bounces={false}
             renderItem={({ item }) => <NotificationItem item={item} />}
-            ListFooterComponent={() => (
-              <View style={{ height: verticalScale(10) }} />
-            )}
             renderSectionHeader={({ section: { day } }) => (
               <Text style={styles.sectoinTitle}>{day}</Text>
             )}
@@ -53,7 +49,6 @@ const NotificationScreen = () => {
             SectionSeparatorComponent={() => (
               <View style={{ height: verticalScale(18) }} />
             )}
-            ListFooterComponentStyle={{ height: verticalScale(50) }}
           />
         </View>
       </View>

@@ -68,6 +68,10 @@ const styles = StyleSheet.create({
     top: verticalScale(88),
     right: horizontalScale(8),
   },
+  play: {
+    height: verticalScale(23),
+    width: horizontalScale(23),
+  },
 });
 
 export default styles;

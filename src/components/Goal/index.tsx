@@ -28,6 +28,7 @@ const Goal = ({ text, select, onPress }: GoalType) => {
         {text}
       </Text>
       <Image
+        resizeMode="contain"
         source={
           isSelected
             ? require('../../assets/icons/check.png')

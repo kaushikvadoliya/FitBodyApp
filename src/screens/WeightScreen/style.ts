@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
   },
   unitTextContainer: {
     justifyContent: 'center',
-    width: horizontalScale(48),
-    height: horizontalScale(32),
+    width: horizontalScale(100),
+    height: horizontalScale(50),
   },
   unitContainer: {
     backgroundColor: colors.secondary,

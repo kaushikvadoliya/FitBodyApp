@@ -20,17 +20,23 @@ import NotFound from '../../components/NotFound';
 
 const SearchScreen = () => {
   const [selectCategory, setSelectCategory] = useState<string>('All');
-  const searchListData =
-    selectCategory === 'Workout' ? workoutSearchList : nutritionSearchList;
   const [favoriteWorkouts, setFavoriteWorkouts] = useState<number[]>([]);
   const [search, setSearch] = useState<string>('');
   const [favoriteItems, setFavoriteItems] = useState<number[]>([2, 5, 7]);
   const [debounce, setDebounce] = useState<string>(search);
   const [focus, setFocus] = useState<boolean>(false);
+  const searchListData =
+    selectCategory === 'Workout' ? workoutSearchList : nutritionSearchList;
   const [searchList, setSearchList] =
     useState<SearchItemType[]>(searchListData);
 
   const workoutData = data.filter(item => item.type != 'Article');
+
+  useEffect(() => {
+    setSearchList(
+      selectCategory === 'Workout' ? workoutSearchList : nutritionSearchList,
+    );
+  }, [selectCategory]);
 
   const allData =
     selectCategory === 'All'
@@ -41,6 +47,7 @@ const SearchScreen = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setDebounce(search);
       {
         debounce.length > 0 &&
           selectCategory !== 'All' &&

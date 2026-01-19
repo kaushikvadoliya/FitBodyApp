@@ -30,6 +30,7 @@ const MyProfileScreen = () => {
           <Image
             style={styles.profileImage}
             source={require('../../assets/images/profile.jpg')}
+            resizeMode="contain"
           />
           <Text style={styles.name}>Madison Smith</Text>
           <Text style={styles.email}>madisons@example.com</Text>

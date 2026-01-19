@@ -30,12 +30,13 @@ const VideoCard = ({
   return (
     <View style={styles.container}>
       <View>
-        <Image source={image} style={styles.image} />
+        <Image source={image} style={styles.image} resizeMode="cover" />
         <TouchableOpacity onPress={onStar} style={styles.starContainer}>
           <Image
             style={styles.star}
             tintColor={favourite ? colors.secondary : colors.white}
             source={require('../../assets/icons/star.png')}
+            resizeMode="contain"
           />
         </TouchableOpacity>
       </View>
@@ -63,7 +64,11 @@ const VideoCard = ({
         </View>
       </View>
       <TouchableOpacity style={styles.playIcon}>
-        <Image source={require('../../assets/icons/playVideo.png')} />
+        <Image
+          source={require('../../assets/icons/playVideo.png')}
+          resizeMode="contain"
+          style={styles.play}
+        />
       </TouchableOpacity>
     </View>
   );

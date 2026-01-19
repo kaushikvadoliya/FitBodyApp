@@ -140,7 +140,7 @@ const Slider = ({
           <View
             style={
               verticle
-                ? { height: verticalScale(169) }
+                ? { height: verticalScale(165) }
                 : { width: spacer_width }
             }
           />
@@ -158,6 +158,7 @@ const Slider = ({
       >
         <Image
           style={verticle ? styles.leftArrow : styles.upArrow}
+          resizeMode="contain"
           source={
             verticle
               ? require('../../assets/icons/sliderRightArrow.png')

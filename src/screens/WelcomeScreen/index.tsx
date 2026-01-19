@@ -23,6 +23,7 @@ const WelcomeScreen = () => {
         <Image
           source={require('../../assets/icons/appIcon.png')}
           style={styles.icon}
+          resizeMode="contain"
         />
         <Text style={styles.fitText}>
           FIT<Text style={styles.bodyText}>BODY</Text>

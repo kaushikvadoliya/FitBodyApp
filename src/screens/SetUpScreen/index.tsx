@@ -17,6 +17,7 @@ const SetUpScreen = () => {
         <Image
           style={styles.image}
           source={require('../../assets/images/setupScreenImage.jpg')}
+          resizeMode="contain"
         />
         <Text
           style={styles.heading}

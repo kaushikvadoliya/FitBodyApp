@@ -1,3 +1,6 @@
+import { DataType } from '../screens/HomeScreen/data';
+import { Exercise, Round } from '../screens/WorkoutScreen/roundData';
+
 export type StackParams = {
   Welcome: undefined;
   OnBoarding: undefined;
@@ -27,4 +30,9 @@ export type StackParams = {
   Notification: undefined;
   Search: undefined;
   Workout: undefined;
+  Round: {
+    feature: DataType;
+    data: Round[];
+  };
+  Video: { data: Exercise };
 };

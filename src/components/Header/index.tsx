@@ -15,6 +15,7 @@ type HeaderProps = {
   star?: boolean;
   style?: StyleProp<ViewStyle>;
   backButtonColorWhite?: boolean;
+  create?: boolean;
 };
 
 const Header = ({
@@ -26,6 +27,7 @@ const Header = ({
   star,
   backButton,
   style,
+  create,
 }: HeaderProps) => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
 
@@ -39,6 +41,7 @@ const Header = ({
           >
             <Image
               style={styles.back}
+              resizeMode="contain"
               tintColor={backButtonColorWhite ? colors.white : colors.secondary}
               source={require('../../assets/icons/leftArrow.png')}
             />
@@ -81,6 +84,7 @@ const Header = ({
                 tintColor={colorWhite ? colors.white : colors.purple}
                 source={require('../../assets/icons/search.png')}
                 style={styles.searchIcon}
+                resizeMode="contain"
               />
             </TouchableOpacity>
           )}
@@ -90,6 +94,17 @@ const Header = ({
                 tintColor={colors.white}
                 source={require('../../assets/icons/star.png')}
                 style={styles.icon}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          )}
+          {create && (
+            <TouchableOpacity>
+              <Image
+                tintColor={colors.purple}
+                source={require('../../assets/icons/plus.png')}
+                style={styles.plusIcon}
+                resizeMode="contain"
               />
             </TouchableOpacity>
           )}
@@ -105,6 +120,7 @@ const Header = ({
               tintColor={colorWhite ? colors.white : colors.purple}
               source={require('../../assets/icons/notifications.png')}
               style={styles.icon}
+              resizeMode="contain"
             />
           </TouchableOpacity>
           <TouchableOpacity
@@ -119,6 +135,7 @@ const Header = ({
               tintColor={colorWhite ? colors.white : colors.purple}
               source={require('../../assets/icons/user.png')}
               style={styles.icon}
+              resizeMode="contain"
             />
           </TouchableOpacity>
         </View>

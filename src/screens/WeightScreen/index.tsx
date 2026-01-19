@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 import AuthHeader from '../../components/AuthHeader';
@@ -26,17 +26,19 @@ const WeightScreen = () => {
           life stage.
         </Text>
         <View style={styles.unitContainer}>
-          <View style={styles.unitTextContainer}>
-            <Text onPress={() => setUnit('kg')} style={styles.unitText}>
-              KG
-            </Text>
-          </View>
+          <TouchableOpacity
+            style={styles.unitTextContainer}
+            onPress={() => setUnit('kg')}
+          >
+            <Text style={styles.unitText}>KG</Text>
+          </TouchableOpacity>
           <View style={styles.devider} />
-          <View style={styles.unitTextContainer}>
-            <Text onPress={() => setUnit('Lb')} style={styles.unitText}>
-              LB
-            </Text>
-          </View>
+          <TouchableOpacity
+            style={styles.unitTextContainer}
+            onPress={() => setUnit('Lb')}
+          >
+            <Text style={styles.unitText}>LB</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.sliderContainer}>
           <Slider arraySize={700} defaultValue={275} unitText={unit} />

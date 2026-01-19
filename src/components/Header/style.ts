@@ -32,6 +32,10 @@ const styles = StyleSheet.create({
     height: verticalScale(18),
     width: horizontalScale(15),
   },
+  plusIcon: {
+    height: verticalScale(18),
+    width: horizontalScale(18),
+  },
   back: {
     height: verticalScale(11),
     width: horizontalScale(6),

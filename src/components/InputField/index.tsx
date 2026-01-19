@@ -55,12 +55,14 @@ const InputField = ({
                       source={require('../../assets/icons/hidden.png')}
                       style={styles.eyeIcon}
                       tintColor={colors.purple}
+                      resizeMode="contain"
                     />
                   ) : (
                     <Image
                       source={require('../../assets/icons/eye.png')}
                       style={styles.eyeIcon}
                       tintColor={colors.purple}
+                      resizeMode="contain"
                     />
                   )}
                 </TouchableOpacity>

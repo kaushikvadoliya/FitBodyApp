@@ -31,6 +31,7 @@ const AuthHeader = ({ backText, text, style }: AuthHeaderProps) => {
         <Image
           style={styles.icon}
           source={require('../../assets/icons/leftArrow.png')}
+          resizeMode="contain"
         />
         {backText && <Text style={styles.backText}>Back</Text>}
       </TouchableOpacity>

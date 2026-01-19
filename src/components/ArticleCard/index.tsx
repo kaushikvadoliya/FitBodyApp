@@ -19,7 +19,7 @@ type ArticleCard = {
 const ArticleCard = ({ image, text, favourite, onStar }: ArticleCard) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={image} resizeMode="cover" />
       <TouchableOpacity style={styles.starIcon} onPress={onStar}>
         <Image
           style={styles.star}

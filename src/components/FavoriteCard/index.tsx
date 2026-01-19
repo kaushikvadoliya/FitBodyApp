@@ -96,7 +96,11 @@ const FavoriteCard = ({
       </TouchableOpacity>
       {item.video && (
         <TouchableOpacity style={styles.playIcon}>
-          <Image source={require('../../assets/icons/playVideo.png')} />
+          <Image
+            source={require('../../assets/icons/playVideo.png')}
+            resizeMode="contain"
+            style={styles.play}
+          />
         </TouchableOpacity>
       )}
     </View>

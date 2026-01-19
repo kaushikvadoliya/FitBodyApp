@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     width: horizontalScale(158),
     borderRadius: 100,
     justifyContent: 'center',
-    resizeMode: 'cover',
   },
   image: {
     height: verticalScale(74),

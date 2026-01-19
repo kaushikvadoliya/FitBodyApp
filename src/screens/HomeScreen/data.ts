@@ -1,6 +1,7 @@
 import { ImageSourcePropType } from 'react-native';
 
 type dataType = 'Article' | 'workOut' | 'Nutrition';
+type physicalLevelType = 'Beginner' | 'Intermediate' | 'Advanced';
 
 export type DataType = {
   id: number;
@@ -12,6 +13,7 @@ export type DataType = {
   type: dataType;
   exercises?: number;
   video?: boolean;
+  physicalLevel?: physicalLevelType;
 };
 
 export const data: DataType[] = [
@@ -24,6 +26,7 @@ export const data: DataType[] = [
     kcal: 120,
     video: true,
     type: 'workOut',
+    physicalLevel: 'Beginner',
   },
   {
     id: 2,
@@ -41,6 +44,7 @@ export const data: DataType[] = [
     kcal: 150,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Beginner',
   },
 
   {
@@ -96,6 +100,7 @@ export const data: DataType[] = [
     exercises: 5,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Beginner',
   },
   {
     id: 11,
@@ -106,6 +111,7 @@ export const data: DataType[] = [
     exercises: 10,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Intermediate',
   },
   {
     id: 12,
@@ -116,6 +122,7 @@ export const data: DataType[] = [
     exercises: 5,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Intermediate',
   },
   {
     id: 13,
@@ -126,6 +133,7 @@ export const data: DataType[] = [
     exercises: 3,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Advanced',
   },
   {
     id: 14,
@@ -136,6 +144,7 @@ export const data: DataType[] = [
     exercises: 5,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Intermediate',
   },
   {
     id: 15,
@@ -146,6 +155,7 @@ export const data: DataType[] = [
     exercises: 5,
     type: 'workOut',
     video: true,
+    physicalLevel: 'Intermediate',
   },
   {
     id: 16,

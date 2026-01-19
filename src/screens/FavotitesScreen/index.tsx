@@ -50,24 +50,23 @@ const FavoritesScreen = () => {
             />
           </View>
         </View>
-        <View style={styles.flatlistContainer}>
-          <FlatList
-            data={favoriteData}
-            keyExtractor={item => item.id.toString()}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.flatlistStyle}
-            bounces={false}
-            renderItem={({ item }) => {
-              return (
-                <FavoriteCard
-                  item={item}
-                  favorite
-                  onPressFavorite={() => removeFavorite(item.id)}
-                />
-              );
-            }}
-          />
-        </View>
+        <FlatList
+          data={favoriteData}
+          style={styles.flatlistContainer}
+          keyExtractor={item => item.id.toString()}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.flatlistStyle}
+          bounces={false}
+          renderItem={({ item }) => {
+            return (
+              <FavoriteCard
+                item={item}
+                favorite
+                onPressFavorite={() => removeFavorite(item.id)}
+              />
+            );
+          }}
+        />
       </View>
     </Layout>
   );
