@@ -21,9 +21,9 @@ const FavoriteCard = ({
         {item.type === 'Article' || item.type === 'Nutrition' ? (
           <>
             <Text style={styles.title}>{item.title}</Text>
-            {item.text && (
+            {item.description && item.type === 'Article' && (
               <Text style={styles.text} numberOfLines={3} ellipsizeMode="tail">
-                {item.text}
+                {item.description}
               </Text>
             )}
             {item.kcal && item.time && (

@@ -1,5 +1,5 @@
 import { SectionList, Text, View } from 'react-native';
-import React from 'react';
+import React, { useContext } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import styles from './style';
@@ -9,11 +9,22 @@ import FeatureCard from '../../components/FeatureCard';
 import { verticalScale } from '../../helper/Scaling';
 import RoundItem from '../../components/RoundItem';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const RoundScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const route = useRoute<RouteProp<StackParams, 'Round'>>();
   const { data, feature } = route.params;
+  const { favorite, setFavorite } = useContext(FavoriteContext);
+
+  const addFavorite = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
+    } else {
+      setFavorite([...favorite, id]);
+    }
+  };
 
   return (
     <Layout>
@@ -27,21 +38,23 @@ const RoundScreen = () => {
             time={feature.time}
             kcal={feature.kcal}
             excercise={feature.exercises}
+            favorite={favorite.includes(feature.id)}
+            onFavrotePress={() => addFavorite(feature.id)}
           />
         </View>
         <View style={styles.sectionContainer}>
           <SectionList
             sections={data}
-            keyExtractor={item => item.id.toString()}
+            keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
             stickySectionHeadersEnabled={false}
             bounces={false}
             renderItem={({ item }) => (
               <RoundItem
                 repetition={item.repetition}
-                time={item.timer}
+                time={item.time}
                 title={item.title}
-                favorite={item.favorite}
+                favorite={favorite.includes(item.id)}
                 onPress={() => navigation.navigate('Video', { data: item })}
               />
             )}

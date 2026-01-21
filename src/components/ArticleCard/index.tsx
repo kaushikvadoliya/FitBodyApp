@@ -11,12 +11,17 @@ import { colors } from '../../utils/colors';
 
 type ArticleCard = {
   image: ImageSourcePropType;
-  text: string;
+  description: string;
   favourite?: boolean;
   onStar: () => void;
 };
 
-const ArticleCard = ({ image, text, favourite, onStar }: ArticleCard) => {
+const ArticleCard = ({
+  image,
+  description,
+  favourite,
+  onStar,
+}: ArticleCard) => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} resizeMode="cover" />
@@ -28,7 +33,7 @@ const ArticleCard = ({ image, text, favourite, onStar }: ArticleCard) => {
         />
       </TouchableOpacity>
       <Text style={styles.text} ellipsizeMode="tail" numberOfLines={1}>
-        {text}
+        {description}
       </Text>
     </View>
   );

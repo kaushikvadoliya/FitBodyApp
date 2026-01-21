@@ -39,7 +39,7 @@ const FeatureCard = ({
   onFavrotePress,
 }: FeatureCardProps) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity disabled={varient === 'sm'} onPress={onPress}>
       <ImageBackground
         source={backgroundImage}
         style={[

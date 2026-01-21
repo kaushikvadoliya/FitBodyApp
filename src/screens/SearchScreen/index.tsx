@@ -1,28 +1,23 @@
 import { View, Text, FlatList } from 'react-native';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import styles from './style';
 import SearchBar from '../../components/SearchBar';
 import Button from '../../components/Button';
 import { data } from '../HomeScreen/data';
-import {
-  nutritionSearchList,
-  searchData,
-  SearchItemType,
-  workoutSearchList,
-} from './data';
+import { nutritionSearchList, SearchItemType, workoutSearchList } from './data';
 import FavoriteCard from '../../components/FavoriteCard';
 import VideoCard from '../../components/VideoCard';
 import { verticalScale } from '../../helper/Scaling';
 import SearchItem from '../../components/SearchItem';
 import NotFound from '../../components/NotFound';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const SearchScreen = () => {
   const [selectCategory, setSelectCategory] = useState<string>('All');
-  const [favoriteWorkouts, setFavoriteWorkouts] = useState<number[]>([]);
+  const { favorite, setFavorite } = useContext(FavoriteContext);
   const [search, setSearch] = useState<string>('');
-  const [favoriteItems, setFavoriteItems] = useState<number[]>([2, 5, 7]);
   const [debounce, setDebounce] = useState<string>(search);
   const [focus, setFocus] = useState<boolean>(false);
   const searchListData =
@@ -40,10 +35,10 @@ const SearchScreen = () => {
 
   const allData =
     selectCategory === 'All'
-      ? searchData
+      ? data.filter(item => item.type !== 'Article')
       : selectCategory === 'Workout'
-      ? searchData.filter(item => item.type === 'workOut')
-      : searchData.filter(item => item.type !== 'workOut');
+      ? data.filter(item => item.type === 'workOut')
+      : data.filter(item => item.type === 'Nutrition');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -61,21 +56,21 @@ const SearchScreen = () => {
     return () => clearTimeout(timer);
   }, [search]);
 
-  const addFavoriteIds = (id: number) => {
-    if (favoriteItems.includes(id)) {
-      const array = favoriteItems.filter(item => item !== id);
-      setFavoriteItems(array);
+  const addFavoriteIds = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
     } else {
-      setFavoriteItems([...favoriteItems, id]);
+      setFavorite([...favorite, id]);
     }
   };
 
-  const addFavoriteWorkout = (id: number) => {
-    if (favoriteWorkouts.includes(id)) {
-      const array = favoriteWorkouts.filter(item => item !== id);
-      setFavoriteWorkouts(array);
+  const addFavoriteWorkout = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
     } else {
-      setFavoriteWorkouts([...favoriteWorkouts, id]);
+      setFavorite([...favorite, id]);
     }
   };
 
@@ -128,12 +123,13 @@ const SearchScreen = () => {
               renderItem={({ item }) => {
                 return (
                   <VideoCard
+                    playIcon
                     image={item.image}
                     text={item.title ?? ''}
                     time={item.time ?? 12}
                     kcal={item.kcal ?? 120}
                     onStar={() => addFavoriteWorkout(item.id)}
-                    favourite={favoriteWorkouts.includes(item.id)}
+                    favourite={favorite.includes(item.id)}
                   />
                 );
               }}
@@ -144,7 +140,7 @@ const SearchScreen = () => {
           <View style={[styles.flatlistContainer]}>
             <FlatList
               data={filterData}
-              keyExtractor={item => item.id.toString()}
+              keyExtractor={item => item.id}
               showsVerticalScrollIndicator={false}
               contentContainerStyle={styles.flatlistStyle}
               bounces={false}
@@ -152,7 +148,7 @@ const SearchScreen = () => {
                 return (
                   <FavoriteCard
                     item={item}
-                    favorite={favoriteItems.includes(item.id)}
+                    favorite={favorite.includes(item.id)}
                     onPressFavorite={() => addFavoriteIds(item.id)}
                   />
                 );

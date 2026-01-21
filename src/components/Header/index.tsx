@@ -99,7 +99,9 @@ const Header = ({
             </TouchableOpacity>
           )}
           {create && (
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('CreateYourRoutine')}
+            >
               <Image
                 tintColor={colors.purple}
                 source={require('../../assets/icons/plus.png')}

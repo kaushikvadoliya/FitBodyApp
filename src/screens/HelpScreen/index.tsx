@@ -87,7 +87,7 @@ const HelpScreen = () => {
             <FlatList
               bounces={false}
               data={filterData}
-              keyExtractor={item => item.id.toString()}
+              keyExtractor={item => item.id}
               renderItem={({ item }) => (
                 <ExpandableItem
                   title={item.title}

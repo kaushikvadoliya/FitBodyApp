@@ -7,12 +7,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
   },
-  container: {
-    width: horizontalScale(324),
-    height: verticalScale(420),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
   imageContainer: {
     height: verticalScale(460),
     backgroundColor: colors.primary,
@@ -20,17 +15,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: verticalScale(18),
   },
-  star: {
-    height: verticalScale(22),
-    width: horizontalScale(22),
-    right: horizontalScale(14),
-    top: verticalScale(12),
-    position: 'absolute',
-  },
-  playIcon: {
-    height: verticalScale(100),
-    width: horizontalScale(100),
-  },
+
   detailsContainer: {
     height: verticalScale(128),
     backgroundColor: colors.secondary,

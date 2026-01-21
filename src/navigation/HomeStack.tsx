@@ -13,6 +13,9 @@ import SearchScreen from '../screens/SearchScreen';
 import WorkoutScreen from '../screens/WorkoutScreen';
 import RoundScreen from '../screens/RoundScreen';
 import VideoScreen from '../screens/VideoScreen';
+import CreateYourRoutineScreen from '../screens/CreateYourRoutineScreen';
+import YourRoutineScreen from '../screens/YourRoutineScreen';
+import ProgressTrackingScreen from '../screens/ProgressTrackingScreen';
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
@@ -34,6 +37,15 @@ const HomeStack = () => {
       <Stack.Screen name="Workout" component={WorkoutScreen} />
       <Stack.Screen name="Round" component={RoundScreen} />
       <Stack.Screen name="Video" component={VideoScreen} />
+      <Stack.Screen
+        name="CreateYourRoutine"
+        component={CreateYourRoutineScreen}
+      />
+      <Stack.Screen name="YourRoutine" component={YourRoutineScreen} />
+      <Stack.Screen
+        name="ProgressTracking"
+        component={ProgressTrackingScreen}
+      />
     </Stack.Navigator>
   );
 };

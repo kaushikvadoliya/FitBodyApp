@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import { FlatList, Text, View } from 'react-native';
@@ -6,21 +6,29 @@ import styles from './style';
 import Button from '../../components/Button';
 import { data, DataType } from '../HomeScreen/data';
 import FavoriteCard from '../../components/FavoriteCard';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const FavoritesScreen = () => {
   const [select, setSelect] = useState<string>('All');
   const [favorites, setFavorites] = useState<DataType[]>(data);
+  const { favorite, setFavorite } = useContext(FavoriteContext);
+
   const favoriteData = useMemo(() => {
     if (select === 'All') {
-      return favorites;
+      return favorites.filter(item => favorite.includes(item.id));
     }
     return select === 'Video'
-      ? favorites.filter(item => item.type === 'workOut')
-      : favorites.filter(item => item.type !== 'workOut');
+      ? favorites.filter(
+          item => item.type === 'workOut' && favorite.includes(item.id),
+        )
+      : favorites.filter(
+          item => item.type !== 'workOut' && favorite.includes(item.id),
+        );
   }, [favorites, select]);
 
-  const removeFavorite = (id: number) => {
+  const removeFavorite = (id: string) => {
     setFavorites(favorites.filter(item => item.id !== id));
+    setFavorite(favorite.filter((item: string) => item !== id));
   };
 
   return (
@@ -53,7 +61,7 @@ const FavoritesScreen = () => {
         <FlatList
           data={favoriteData}
           style={styles.flatlistContainer}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.flatlistStyle}
           bounces={false}

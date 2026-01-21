@@ -1,5 +1,5 @@
 import { FlatList, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import styles from './style';
@@ -22,11 +22,12 @@ import {
   beginnerRounds,
   intermediateRounds,
 } from './roundData';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const WorkoutScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
   const [selectLevel, setSelectLevel] = useState<string>('Beginner');
-  const [favorite, setFavorite] = useState<number[]>([]);
+  const { favorite, setFavorite } = useContext(FavoriteContext);
 
   const text =
     selectLevel === 'Beginner'
@@ -49,7 +50,7 @@ const WorkoutScreen = () => {
       ? intermediateWorkout
       : AdvancedWorkout;
 
-  const addFavorite = (id: number) => {
+  const addFavorite = (id: string) => {
     if (favorite.includes(id)) {
       const array = favorite.filter(item => item !== id);
       setFavorite(array);
@@ -106,7 +107,7 @@ const WorkoutScreen = () => {
         <View style={styles.flatlistContainer}>
           <FlatList
             data={workoutData.data}
-            keyExtractor={item => item.id.toString()}
+            keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
             bounces={false}
             contentContainerStyle={styles.flatlistStyle}

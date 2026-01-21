@@ -1,5 +1,5 @@
 import { DataType } from '../HomeScreen/data';
-
+import uuid from 'react-native-uuid';
 type WorkoutType = {
   featureData: DataType;
   data: DataType[];
@@ -7,7 +7,7 @@ type WorkoutType = {
 
 export const beginnerWorkout: WorkoutType = {
   featureData: {
-    id: 1,
+    id: uuid.v4(),
     title: 'functional training',
     time: 45,
     kcal: 1450,
@@ -19,7 +19,7 @@ export const beginnerWorkout: WorkoutType = {
   },
   data: [
     {
-      id: 11,
+      id: uuid.v4(),
       title: 'upper body',
       time: 60,
       kcal: 1320,
@@ -28,7 +28,7 @@ export const beginnerWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 12,
+      id: uuid.v4(),
       title: 'Full body stretching',
       time: 45,
       kcal: 1450,
@@ -37,7 +37,7 @@ export const beginnerWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 13,
+      id: uuid.v4(),
       title: 'Glutes & Abs',
       time: 35,
       kcal: 1150,
@@ -50,7 +50,7 @@ export const beginnerWorkout: WorkoutType = {
 
 export const intermediateWorkout: WorkoutType = {
   featureData: {
-    id: 2,
+    id: uuid.v4(),
     text: 'Training Of The Day',
     title: 'cardio fitness',
     time: 45,
@@ -62,7 +62,7 @@ export const intermediateWorkout: WorkoutType = {
   },
   data: [
     {
-      id: 21,
+      id: uuid.v4(),
       title: 'Circuit Training',
       time: 50,
       kcal: 1300,
@@ -71,7 +71,7 @@ export const intermediateWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 22,
+      id: uuid.v4(),
       title: 'Split Strength Training',
       time: 12,
       kcal: 1250,
@@ -80,7 +80,7 @@ export const intermediateWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 23,
+      id: uuid.v4(),
       title: 'Resistance Training',
       time: 45,
       kcal: 11320,
@@ -93,7 +93,7 @@ export const intermediateWorkout: WorkoutType = {
 
 export const AdvancedWorkout: WorkoutType = {
   featureData: {
-    id: 3,
+    id: uuid.v4(),
     text: 'Training Of The Day',
     title: 'Upper Body Strength',
     time: 60,
@@ -105,7 +105,7 @@ export const AdvancedWorkout: WorkoutType = {
   },
   data: [
     {
-      id: 31,
+      id: uuid.v4(),
       title: 'cardio boxing',
       time: 50,
       kcal: 1300,
@@ -114,7 +114,7 @@ export const AdvancedWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 32,
+      id: uuid.v4(),
       title: 'Hypertrophy - Legs',
       time: 12,
       kcal: 1250,
@@ -123,7 +123,7 @@ export const AdvancedWorkout: WorkoutType = {
       type: 'workOut',
     },
     {
-      id: 33,
+      id: uuid.v4(),
       title: 'Rest or Active Recovery',
       time: 30,
       kcal: 1120,

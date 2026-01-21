@@ -34,5 +34,8 @@ export type StackParams = {
     feature: DataType;
     data: Round[];
   };
-  Video: { data: Exercise };
+  Video: { data: DataType };
+  CreateYourRoutine: undefined;
+  YourRoutine: { ids: string[] };
+  ProgressTracking: undefined;
 };

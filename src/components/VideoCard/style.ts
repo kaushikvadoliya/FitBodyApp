@@ -5,11 +5,10 @@ import { colors } from '../../utils/colors';
 
 const styles = StyleSheet.create({
   container: {
-    height: verticalScale(138),
     width: horizontalScale(158),
   },
   image: {
-    height: verticalScale(98),
+    height: verticalScale(92),
     width: horizontalScale(158),
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
@@ -23,7 +22,6 @@ const styles = StyleSheet.create({
     marginLeft: horizontalScale(8),
   },
   lowerContainer: {
-    height: verticalScale(40),
     width: horizontalScale(158),
     borderLeftWidth: 1.5,
     borderRightWidth: 1.5,
@@ -65,7 +63,7 @@ const styles = StyleSheet.create({
   },
   playIcon: {
     position: 'absolute',
-    top: verticalScale(88),
+    top: verticalScale(81),
     right: horizontalScale(8),
   },
   play: {

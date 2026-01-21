@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import styles from './style';
@@ -10,30 +10,30 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParams } from '../../navigation/navigationType';
 import { data } from './data';
 import VideoCard from '../../components/VideoCard';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const HomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<StackParams>>();
-  const [favoriteWorkouts, setFavoriteWorkouts] = useState<number[]>([]);
-  const [favoriteArticles, setFavoriteArticles] = useState<number[]>([]);
+  const { favorite, setFavorite } = useContext(FavoriteContext);
 
-  const workoutData = data.filter(item => item.type != 'Article').slice(0, 2);
-  const articleData = data.filter(item => item.type !== 'workOut').slice(0, 2);
+  const workoutData = data.filter(item => item.type == 'workOut').slice(0, 2);
+  const articleData = data.filter(item => item.type === 'Article').slice(0, 2);
 
-  const addFavoriteWorkout = (id: number) => {
-    if (favoriteWorkouts.includes(id)) {
-      const array = favoriteWorkouts.filter(item => item !== id);
-      setFavoriteWorkouts(array);
+  const addFavoriteWorkout = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
     } else {
-      setFavoriteWorkouts([...favoriteWorkouts, id]);
+      setFavorite([...favorite, id]);
     }
   };
 
-  const addFavoriteArticle = (id: number) => {
-    if (favoriteArticles.includes(id)) {
-      const array = favoriteArticles.filter(item => item !== id);
-      setFavoriteArticles(array);
+  const addFavoriteArticle = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
     } else {
-      setFavoriteArticles([...favoriteArticles, id]);
+      setFavorite([...favorite, id]);
     }
   };
 
@@ -48,6 +48,7 @@ const HomeScreen = () => {
           <HomeIcons
             style={styles.icons}
             onWorkOut={() => navigation.navigate('Workout')}
+            onProgress={() => navigation.navigate('ProgressTracking')}
           />
           <View style={styles.firstContainer}>
             <Text style={styles.text}>Recommendations</Text>
@@ -63,7 +64,7 @@ const HomeScreen = () => {
           <View style={styles.cardContainer}>
             <FlatList
               data={workoutData}
-              keyExtractor={item => item.id.toString()}
+              keyExtractor={item => item.id}
               contentContainerStyle={styles.flatList}
               bounces={false}
               horizontal
@@ -71,12 +72,13 @@ const HomeScreen = () => {
               renderItem={({ item }) => {
                 return (
                   <VideoCard
+                    playIcon
                     image={item.image}
                     text={item.title ?? ''}
                     time={item.time ?? 12}
                     kcal={item.kcal ?? 120}
                     onStar={() => addFavoriteWorkout(item.id)}
-                    favourite={favoriteWorkouts.includes(item.id)}
+                    favourite={favorite.includes(item.id)}
                   />
                 );
               }}
@@ -101,7 +103,7 @@ const HomeScreen = () => {
           <View style={styles.lowerInnerContainer}>
             <FlatList
               data={articleData}
-              keyExtractor={item => item.id.toString()}
+              keyExtractor={item => item.id}
               horizontal
               contentContainerStyle={styles.flatList}
               bounces={false}
@@ -110,9 +112,9 @@ const HomeScreen = () => {
                 return (
                   <ArticleCard
                     image={item.image}
-                    text={item.text ?? ''}
+                    description={item.description ?? ''}
                     onStar={() => addFavoriteArticle(item.id)}
-                    favourite={favoriteArticles.includes(item.id)}
+                    favourite={favorite.includes(item.id)}
                   />
                 );
               }}

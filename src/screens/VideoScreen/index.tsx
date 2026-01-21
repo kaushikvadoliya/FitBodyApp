@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import { RouteProp, useRoute } from '@react-navigation/native';
@@ -6,28 +6,34 @@ import { StackParams } from '../../navigation/navigationType';
 import { Image, ImageBackground, Text, View } from 'react-native';
 import styles from './style';
 import { colors } from '../../utils/colors';
+import PlayVideoCard from '../../components/PlayVideoCard';
+import { FavoriteContext } from '../../context/FavoriteContext';
 
 const VideoScreen = () => {
   const route = useRoute<RouteProp<StackParams, 'Video'>>();
+  const { favorite, setFavorite } = useContext(FavoriteContext);
+
+  const addFavotite = (id: string) => {
+    if (favorite.includes(id)) {
+      const array = favorite.filter((item: string) => item !== id);
+      setFavorite(array);
+    } else {
+      setFavorite([...favorite, id]);
+    }
+  };
+
   const { data } = route.params;
   return (
     <Layout>
-      <Header backButton text={data.physicallLevel} icons search />
+      <Header backButton text={data.physicalLevel} icons search />
       <View style={styles.mainContainer}>
         <View style={styles.imageContainer}>
-          <ImageBackground borderRadius={20} source={data.image}>
-            <View style={styles.container}>
-              <Image
-                source={require('../../assets/icons/star.png')}
-                tintColor={data.favorite ? colors.secondary : colors.white}
-                style={styles.star}
-              />
-              <Image
-                style={styles.playIcon}
-                source={require('../../assets/icons/playLg.png')}
-              />
-            </View>
-          </ImageBackground>
+          <PlayVideoCard
+            star
+            image={data.image}
+            favorite={favorite.includes(data.id)}
+            onFavoritePress={() => addFavotite(data.id)}
+          />
         </View>
         <View style={styles.detailsContainer}>
           <Text style={styles.title}>{data.title}</Text>
@@ -40,7 +46,7 @@ const VideoScreen = () => {
                 style={styles.icon}
                 resizeMode="contain"
               />
-              <Text style={styles.text}>{data.timer} Seconds</Text>
+              <Text style={styles.text}>{data.time} Seconds</Text>
             </View>
             <View style={styles.iconcontainer}>
               <Image
@@ -58,7 +64,7 @@ const VideoScreen = () => {
                 style={styles.icon}
                 resizeMode="contain"
               />
-              <Text style={styles.text}>{data.physicallLevel}</Text>
+              <Text style={styles.text}>{data.physicalLevel}</Text>
             </View>
           </View>
         </View>
